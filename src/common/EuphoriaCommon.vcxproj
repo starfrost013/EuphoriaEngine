@@ -55,20 +55,20 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Playtest|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -170,6 +170,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(CoreLibraryDependencies);winmm.lib;wldap32.lib;crypt32.lib;Ws2_32.lib;wsock32.lib;Normaliz.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\src\lib\win64</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>EuphoriaCommon.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -192,6 +193,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(CoreLibraryDependencies);winmm.lib;wldap32.lib;crypt32.lib;Ws2_32.lib;wsock32.lib;Normaliz.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\src\lib\win64</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>EuphoriaCommon.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Playtest|x64'">
@@ -214,6 +216,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(CoreLibraryDependencies);winmm.lib;wldap32.lib;crypt32.lib;Ws2_32.lib;wsock32.lib;Normaliz.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\src\lib\win64</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>EuphoriaCommon.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -238,8 +241,11 @@
     <ClInclude Include="pdjson.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="version.h" />
-	<ClInclude Include="..\..\src\util\mathlib.h" />
+    <ClInclude Include="..\..\src\util\mathlib.h" />
     <ClInclude Include="..\..\src\util\shared.h" />
+    <ClInclude Include="..\..\src\client\include\client_api.h" />
+    <ClInclude Include="..\..\src\server\server_api.h" />
+    <ClInclude Include="..\..\src\sys_api.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmd.c" />
@@ -249,9 +255,9 @@
     <ClCompile Include="cvar.c" />
     <ClCompile Include="filesystem.c" />
     <ClCompile Include="gameinfo.c" />
+    <ClCompile Include="interface_manager.c" />
     <ClCompile Include="localisation.c" />
     <ClCompile Include="map_loader.c" />
-
     <ClCompile Include="md4.c" />
     <ClCompile Include="netservices\netservices_base.c" />
     <ClCompile Include="netservices\netservices_masterserver.c" />
@@ -262,7 +268,7 @@
     <ClCompile Include="cpuid.c" />
     <ClCompile Include="netservices\netservices_account.c" />
     <ClCompile Include="swap.c" />
-	<ClCompile Include="..\..\src\util\mathlib.c" />
+    <ClCompile Include="..\..\src\util\mathlib.c" />
     <ClCompile Include="..\..\src\util\shared.c" />
   </ItemGroup>
   <ItemGroup>

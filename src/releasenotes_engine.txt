@@ -11,6 +11,7 @@ NEW FEATURES:
 		* It takes the form startserver map [gamemode] [maxplayers] [fraglimit] [timelimit] [hostname]
 	* Replaced com_sprintf with snprintf
 	* Reset the protocol version to 1 
+	* Renamed client_state_t on server side to client_state to represent that it is an enum,
 
 BUG FIXES:
 	* Fixed possible copy of invalid Cmd_Argc(1) to wildcard parameter of "dir" command

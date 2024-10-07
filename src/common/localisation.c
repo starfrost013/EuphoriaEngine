@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // Text localisation and dictionary system (July 1, 2024)
 
 #include <common/common.h>
+#include "sys_api.h"
 
 // cvars
 cvar_t* language;
@@ -67,7 +68,7 @@ void Localisation_LoadCurrentLanguage()
 	int32_t file_size = FS_FOpenFile(loc_filename, &localisation_lang_ptr);
 
 	if (file_size < 0)
-		Sys_Error("Failed to load language strings file %s!", loc_filename);
+		sys.Sys_Error("Failed to load language strings file %s!", loc_filename);
 
 	// temporarily allocate some storage
 	// changed from calloc to (now calloc but with slight overhead) Z_TagMalloc for the purposes of tracking
@@ -78,7 +79,7 @@ void Localisation_LoadCurrentLanguage()
 
 	if (!file_ptr)
 	{
-		Sys_Error("Failed to allocate memory to read language file ***BUG - OUT OF MEMORY???***");
+		sys.Sys_Error("Failed to allocate memory to read language file ***BUG - OUT OF MEMORY???***");
 		return; // shut up compiler
 	}
 
@@ -247,7 +248,7 @@ char* Localisation_ProcessString(char* value)
 		return value; // no string here
 
 	if (string_length > STRING_TEMP_BUF_SIZE)
-		Sys_Error("Passed string more than 0x10000 bytes in length to Localisation_ProcessString?!");
+		sys.Sys_Error("Passed string more than 0x10000 bytes in length to Localisation_ProcessString?!");
 
 	// determine the length of the string
 	while (token_ptr < (string_temp_buf + string_length))
@@ -327,7 +328,7 @@ char* Localisation_ProcessString(char* value)
 
 	if (!cached_strings[cached_strings_count].value)
 	{
-		Sys_Error("Failed to allocate memory for localisation string information");
+		sys.Sys_Error("Failed to allocate memory for localisation string information");
 		return NULL;
 	}
 

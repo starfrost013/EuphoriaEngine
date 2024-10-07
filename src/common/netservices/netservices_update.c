@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // netservices_update.c: Updater
 
 #include "netservices.h"
+#include "sys_api.h"
 
 // Defines
 #define UPDATE_JSON_URL SERVICE_BASE_URL_UPDATER		"/updateinfo.json"	// URL for update info json file
@@ -96,7 +97,7 @@ void Netservices_UpdaterGetUpdate()
 	// tell the user about this but not stop them from playing the game
 	if (update_json_file_name[0] == '\0')
 	{
-		Sys_Msgbox("Non-Fatal Error", 0, "Failed to create Netservices UpdateInfo.json - couldn't get a temp file name!");
+		sys.Sys_Msgbox("Non-Fatal Error", 0, "Failed to create Netservices UpdateInfo.json - couldn't get a temp file name!");
 		return;
 	}
 
@@ -105,7 +106,7 @@ void Netservices_UpdaterGetUpdate()
 
 	if (update_json_handle == NULL)
 	{
-		Sys_Msgbox("Non-Fatal Error", 0, "Failed to create Netservices UpdateInfo.json - couldn't create a temp file!");
+		sys.Sys_Msgbox("Non-Fatal Error", 0, "Failed to create Netservices UpdateInfo.json - couldn't create a temp file!");
 		return;
 	}
 
@@ -144,7 +145,7 @@ void Netservices_UpdateInfoJsonComplete()
 	// empty string - invalid channel (failsafe)
 	if (strlen(selected_update_channel_str) == 0)
 	{
-		Sys_Msgbox("Update Error", 0, "Invalid update channel selected. Can't update...");
+		sys.Sys_Msgbox("Update Error", 0, "Invalid update channel selected. Can't update...");
 		fclose(update_json_handle);
 		remove(update_json_file_name_ptr);
 		return;
@@ -154,7 +155,7 @@ void Netservices_UpdateInfoJsonComplete()
 	bool current_update_channel_selected = false;
 
 	// parse the json stream
-	// A PARSE FAILURE IS A SYS_ERROR CONDITION
+	// A PARSE FAILURE IS A Sys_Error CONDITION
 
 	enum JSON_type next_object = JSON_next(&update_json_stream);
 
@@ -204,22 +205,22 @@ void Netservices_UpdateInfoJsonComplete()
 								// parse the version information
 								char* token = strtok(version_string, ".");
 								if (token == NULL)
-									Sys_Error("Malformed version information in obtained UpdateInfo.json (1) (THIS IS A BUG)"); 
+									sys.Sys_Error("Malformed version information in obtained UpdateInfo.json (1) (THIS IS A BUG)"); 
 								update_info.version.major = atoi(token);
 
 								token = strtok(NULL, ".");
 								if (token == NULL)
-									Sys_Error("Malformed version information in obtained UpdateInfo.json (2) (THIS IS A BUG)");
+									sys.Sys_Error("Malformed version information in obtained UpdateInfo.json (2) (THIS IS A BUG)");
 								update_info.version.minor = atoi(token);
 
 								token = strtok(NULL, ".");
 								if (token == NULL)
-									Sys_Error("Malformed version information in obtained UpdateInfo.json (3) (THIS IS A BUG)");
+									sys.Sys_Error("Malformed version information in obtained UpdateInfo.json (3) (THIS IS A BUG)");
 								update_info.version.revision = atoi(token);
 
 								token = strtok(NULL, ".");
 								if (token == NULL)
-									Sys_Error("Malformed version information in obtained UpdateInfo.json (4) (THIS IS A BUG)");
+									sys.Sys_Error("Malformed version information in obtained UpdateInfo.json (4) (THIS IS A BUG)");
 								update_info.version.build = atoi(token);
 
 
@@ -244,7 +245,7 @@ void Netservices_UpdateInfoJsonComplete()
 									update_info.release_date.tm_sec = second;
 								}
 								else // kill it
-									Sys_Error("Malformed release date information in obtained UpdateInfo.json (THIS IS A BUG)");
+									sys.Sys_Error("Malformed release date information in obtained UpdateInfo.json (THIS IS A BUG)");
 							}
 							// A description of the update
 							else if (!strcmp(json_string, "description"))
@@ -327,7 +328,7 @@ bool Netservices_UpdaterPromptForUpdate()
 
 	// cannot use constants, they are windows specific and this is platform independent code
 	// TODO: convert to enum...
-	int32_t buttons = Sys_Msgbox("Update Available", 4, update_prompt); // 4 = MB_YESNO
+	int32_t buttons = sys.Sys_Msgbox("Update Available", 4, update_prompt); // 4 = MB_YESNO
 
 	return (buttons == 6);
 }
@@ -364,7 +365,7 @@ void Netservices_UpdaterStartUpdate()
 
 	if (!update_binary_handle)
 	{
-		Sys_Msgbox("Update failed", 0, "Failed to update Zombono. Could not create update binary file!");
+		sys.Sys_Msgbox("Update failed", 0, "Failed to update Zombono. Could not create update binary file!");
 		return;
 	}
 

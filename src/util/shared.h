@@ -168,11 +168,13 @@ SYSTEM SPECIFIC
 ==============================================================
 */
 
-extern int32_t curtime;		// time returned by last Sys_Milliseconds
-extern int64_t curtime_ns;	// time returned by last Sys_Nanoseconds
+extern int32_t curtime;		// time returned by last sys.Sys_Milliseconds
+extern int64_t curtime_ns;	// time returned by last sys.Sys_Nanoseconds
 
 int32_t Sys_Milliseconds();
+int32_t Sys_MillisecondsGet();
 int64_t Sys_Nanoseconds(); // should be platform independent
+int64_t Sys_NanosecondsGet();
 void Sys_Mkdir(char* path);
 
 // large block stack allocation routines

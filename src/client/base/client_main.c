@@ -47,7 +47,7 @@ void CL_Drop()
 
 	// drop loading plaque unless this is the initial game start
 	if (cls.disable_servercount != -1)
-		Render2D_EndLoadingPlaque();	// get rid of loading plaque
+		CL_EndLoading();	// get rid of loading plaque
 }
 
 

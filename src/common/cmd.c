@@ -29,15 +29,15 @@ typedef struct cmdalias_s
 {
 	struct cmdalias_s	*next;
 	char	name[MAX_ALIAS_NAME];
-	char	*value;
+	char*	value;
 } cmdalias_t;
 
-cmdalias_t	*cmd_alias;
+cmdalias_t*	cmd_alias;
 
 bool	cmd_wait;
 
 #define	ALIAS_LOOP_COUNT	16
-int32_t 	alias_count;		// for detecting runaway loops
+int32_t alias_count;		// for detecting runaway loops
 
 
 //=============================================================================
@@ -55,7 +55,6 @@ void Cmd_Wait_f ()
 {
 	cmd_wait = true;
 }
-
 
 /*
 =============================================================================

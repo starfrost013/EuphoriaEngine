@@ -545,7 +545,7 @@ extern gameinfo_t gameinfo;
 extern cvar_t* game_name;
 extern cvar_t* game_asset_path;
 
-// Sys_Error on fail
+// sys.Sys_Error on fail
 void Gameinfo_Load();
 
 /*
@@ -930,5 +930,3 @@ void	Sys_Error(char* error, ...);
 int32_t	Sys_Msgbox(char* title, uint32_t buttons, char* text, ...);
 void	Sys_Quit();
 char*	Sys_GetClipboardData(void);
-
-

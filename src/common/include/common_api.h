@@ -125,12 +125,6 @@ typedef struct common_api_export_s
 	int32_t 	(*Map_PointLeafnum)(vec3_t p);
 	char*		(*Map_GetCurrentName)();										// Get the current map name.
 
-	// Memory allocation (Hunk)
-	void*		(*Memory_HunkBegin)(int32_t maxsize);							// Initialise the memory hunk.
-	void*		(*Memory_HunkAlloc)(int32_t size);								// Allocate hunk memory.
-	void		(*Memory_HunkFree)(void* buf);									// Free the hunk memory
-	int32_t		(*Memory_HunkEnd)();											// Destroy the memory hunk.
-
 	// Memory allocation (Zone)
 	void		(*Memory_ZoneFree)(void* ptr);									// Free zone allocated memory
 	void*		(*Memory_ZoneMalloc)(int32_t size);								// Zone Allocate memory

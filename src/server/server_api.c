@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
 #include "server_api.h"
+#include "server.h"
 
 server_api_t server;
 
@@ -39,4 +40,4 @@ void ServerAPI_Init()
 server_api_t ServerAPI_Get()
 {
 	return server;
-}
+} 

@@ -21,25 +21,34 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
 #include <sys_api.h>
+#include <common/common.h>
 
 // sys_api.h: Provides system-specific APIs, so euphoriacommon can use them
-// // September 21, 2024
+// September 21, 2024
 
-sys_api_t system;
+sys_api_t sys;
 
 void SystemAPI_Init()
 {
-	system.Sys_ConsoleInput = Sys_ConsoleInput;
-	system.Sys_ConsoleOutput = Sys_ConsoleOutput;
-	system.Sys_Error = Sys_Error; 
-	system.Sys_Init = Sys_Init;
-	system.Sys_Milliseconds = Sys_Milliseconds;
-	system.Sys_Msgbox = Sys_Msgbox;
-	system.Sys_Nanoseconds = Sys_Nanoseconds;
-	system.Sys_Quit = Sys_Quit;
+	sys.api_version = SYS_API_VERSION;
+
+	sys.Sys_ConsoleInput = Sys_ConsoleInput;
+	sys.Sys_ConsoleOutput = sys.Sys_ConsoleOutput;
+	sys.Sys_Error = Sys_Error; 
+	sys.Sys_Init = Sys_Init;
+	sys.Sys_Milliseconds = Sys_Milliseconds;
+	sys.Sys_MillisecondsGet = Sys_MillisecondsGet;
+	sys.Sys_Msgbox = Sys_Msgbox;
+	sys.Sys_Nanoseconds = Sys_Nanoseconds;
+	sys.Sys_NanosecondsGet = Sys_NanosecondsGet;
+	sys.Sys_Quit = Sys_Quit;
+
+	sys.Net_Init = Net_Init;
+	sys.Net_AdrToString = Net_AdrToString;
+	sys.Net_SendPacket = Net_SendPacket;
 }
 
 sys_api_t SystemAPI_Get()
 {
-	return system;
+	return sys;
 }

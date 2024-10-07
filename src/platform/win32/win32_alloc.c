@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include <common/common.h>
-#include "winquake.h"
+#include "win32_api.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -129,6 +129,11 @@ int32_t Sys_Milliseconds()
 	return curtime;
 }
 
+int32_t Sys_MillisecondsGet()
+{
+	return curtime;
+}
+
 // Returns the number of nanoseconds since the engine started.
 int64_t Sys_Nanoseconds()
 {
@@ -157,4 +162,7 @@ int64_t Sys_Nanoseconds()
 	return curtime_ns;
 }
 
-
+int64_t Sys_NanosecondsGet()
+{
+	return curtime_ns;
+}

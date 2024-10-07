@@ -49,7 +49,7 @@ Con_ToggleConsole_f
 */
 void Con_ToggleConsole_f()
 {
-	Render2D_EndLoadingPlaque();	// get rid of loading plaque
+	CL_EndLoading();	// get rid of loading plaque
 
 	// changing key_dest determinse if the console gets drawn...
 	// ...do we change this?

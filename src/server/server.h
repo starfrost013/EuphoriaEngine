@@ -73,24 +73,23 @@ typedef struct
 #define EDICT_NUM(n) ((edict_t *)((uint8_t *)ge->edicts + ge->edict_size*(n)))
 #define NUM_FOR_EDICT(e) ( ((uint8_t *)(e)-(uint8_t *)ge->edicts ) / ge->edict_size)
 
-
-typedef enum
+typedef enum client_state_e
 {
 	cs_free,		// can be reused for a new connection
 	cs_zombie,		// client has been disconnected, but don't reuse
 	// connection for a couple seconds
 	cs_connected,	// has been assigned to a client_t, but not in game yet
 	cs_spawned		// client is fully in game
-} client_state_t;
+} client_state;
 
-typedef struct
+typedef struct client_frame_s
 {
-	int32_t 				areabytes;
-	uint8_t				areabits[MAX_MAP_AREAS / 8];		// portalarea visibility bits
-	player_state_t		ps;
-	int32_t 				num_entities;
-	int32_t 				first_entity;		// into the circular sv_packet_entities[]
-	int32_t 				senttime;			// for ping calculations
+	int32_t 		areabytes;
+	uint8_t			areabits[MAX_MAP_AREAS / 8];		// portalarea visibility bits
+	player_state_t	ps;
+	int32_t 		num_entities;
+	int32_t 		first_entity;		// into the circular sv_packet_entities[]
+	int32_t 		senttime;			// for ping calculations
 } client_frame_t;
 
 #define	LATENCY_COUNTS		16
@@ -99,7 +98,7 @@ typedef struct
 
 typedef struct client_s
 {
-	client_state_t	state;
+	client_state	state;
 
 	char			userinfo[MAX_INFO_STRING];		// name, etc
 

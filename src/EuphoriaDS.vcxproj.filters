@@ -30,9 +30,6 @@
     <ClInclude Include="game\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\game\src\q_shared.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="common\common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +70,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common\curl\curl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\mathlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\q_shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sys_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,7 +143,16 @@
     <ClCompile Include="common\files.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\game\src\q_shared.c">
+    <ClCompile Include="..\src\util\mathlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\q_shared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sys_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="server\server_api.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

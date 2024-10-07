@@ -108,7 +108,7 @@ void Render2D_BeginLoadingPlaque()
 
 }
 
-void Render2D_EndLoadingPlaque()
+void CL_EndLoading()
 {
 
 }

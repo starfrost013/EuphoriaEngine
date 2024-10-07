@@ -591,7 +591,7 @@ void CL_ParseFrame()
 
 			if (cls.disable_servercount != cl.servercount
 				&& cl.refresh_prepped)
-				Render2D_EndLoadingPlaque();	// get rid of loading plaque
+				CL_EndLoading();	// get rid of loading plaque
 		}
 		cl.sound_prepped = true;	// can start mixing ambient sounds
 

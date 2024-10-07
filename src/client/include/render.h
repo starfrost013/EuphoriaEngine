@@ -32,7 +32,7 @@ void Render2D_Init();
 
 void Render2D_CenterPrint(char* str);
 void Render2D_BeginLoadingPlaque();
-void Render2D_EndLoadingPlaque();
+void CL_EndLoading();
 
 void Render2D_DebugGraph(float value, int32_t r, int32_t g, int32_t b, int32_t a);
 

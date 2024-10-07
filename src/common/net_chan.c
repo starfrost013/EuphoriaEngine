@@ -73,6 +73,8 @@ then a packet only needs to be delivered if there is something in the
 unacknowledged reliable
 */
 
+#include "sys_api.h"
+
 cvar_t*	showpackets;
 cvar_t*	showdrop;
 cvar_t*	qport;
@@ -92,7 +94,7 @@ void Netchan_Init()
 	int32_t port;
 
 	// pick a port value that should be nice and random
-	port = Sys_Milliseconds() & 0xffff;
+	port = sys.Sys_Milliseconds() & 0xffff;
 
 	showpackets = Cvar_Get ("showpackets", "0", 0);
 	showdrop = Cvar_Get ("showdrop", "0", 0);
@@ -118,7 +120,7 @@ void Netchan_OutOfBand (int32_t net_socket, netadr_t adr, int32_t length, uint8_
 	SZ_Write (&send, data, length);
 
 // send the datagram
-	Net_SendPacket (net_socket, send.cursize, send.data, adr);
+	sys.Net_SendPacket (net_socket, send.cursize, send.data, adr);
 }
 
 /*
@@ -155,7 +157,7 @@ void Netchan_Setup(netsrc_t sock, netchan_t *chan, netadr_t adr, int32_t qport)
 	chan->sock = sock;
 	chan->remote_address = adr;
 	chan->qport = qport;
-	chan->last_received = curtime;
+	chan->last_received = sys.Sys_MillisecondsGet();
 	chan->incoming_sequence = 0;
 	chan->outgoing_sequence = 1;
 
@@ -220,8 +222,8 @@ void Netchan_Transmit (netchan_t *chan, int32_t length, uint8_t *data)
 	if (chan->message.overflowed)
 	{
 		chan->fatal_error = true;
-		Com_Printf ("%s:Outgoing message overflow\n"
-			, Net_AdrToString (chan->remote_address));
+		Com_Printf ("%s:Outgoing message overflow\n",
+			sys.Net_AdrToString (chan->remote_address));
 		return;
 	}
 
@@ -243,7 +245,7 @@ void Netchan_Transmit (netchan_t *chan, int32_t length, uint8_t *data)
 	w2 = ( chan->incoming_sequence & ~(1<<31) ) | (chan->incoming_reliable_sequence<<31);
 
 	chan->outgoing_sequence++;
-	chan->last_sent = curtime;
+	chan->last_sent = sys.Sys_MillisecondsGet();
 
 	MSG_WriteInt (&send, w1);
 	MSG_WriteInt (&send, w2);
@@ -266,7 +268,7 @@ void Netchan_Transmit (netchan_t *chan, int32_t length, uint8_t *data)
 		Com_Printf ("Netchan_Transmit: dumped unreliable\n");
 
 // send the datagram
-	Net_SendPacket (chan->sock, send.cursize, send.data, chan->remote_address);
+	sys.Net_SendPacket (chan->sock, send.cursize, send.data, chan->remote_address);
 
 	if (showpackets->value)
 	{
@@ -338,10 +340,11 @@ bool Netchan_Process(netchan_t *chan, sizebuf_t *msg)
 	if (sequence <= chan->incoming_sequence)
 	{
 		if (showdrop->value)
-			Com_Printf ("%s:Out of order packet %i at %i\n"
-				, Net_AdrToString (chan->remote_address)
-				,  sequence
-				, chan->incoming_sequence);
+			Com_Printf ("%s:Out of order packet %i at %i\n",
+				sys.Net_AdrToString (chan->remote_address),
+				sequence,
+				chan->incoming_sequence);
+
 		return false;
 	}
 
@@ -366,7 +369,7 @@ bool Netchan_Process(netchan_t *chan, sizebuf_t *msg)
 //
 // the message can now be read from the current message pointer
 //
-	chan->last_received = curtime;
+	chan->last_received = sys.Sys_MillisecondsGet();
 
 	return true;
 }

@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <client/client.h>
+
 
 #define CLIENT_API_VERSION	1
 
@@ -38,12 +38,13 @@ typedef struct client_api_export_s
 	void	(*CL_Drop)();						// Drop a client
 	void	(*CL_Shutdown)();					// Shutdown the client
 	void	(*CL_ForwardCmdToServer)();			// Forward a client command to the server
-
+	void	(*CL_EndLoading)();
 	void	(*Con_Print)();						// Print to the console - will move this to common eventually but the console is basically a graphical subsystem and is separate to logging
 
-} client_api_export_t;
+	void	(*Key_Init)();						// Initialise the input system - will move this to common eventually, but too many interdependencies
+} client_api_t;
 
-extern client_api_export_t client;
+extern client_api_t client;
 
 void ClientAPI_Init();
-client_api_export_t ClientAPI_Get();
+client_api_t ClientAPI_Get();

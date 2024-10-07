@@ -22,6 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // common.c -- misc functions used in client and server
 #include "common.h"
 #include <client/include/client_api.h>
+#include <server/server_api.h>
+#include <sys_api.h>
 #include <setjmp.h>
 
 #define	MAXPRINTMSG	8192
@@ -80,7 +82,6 @@ static char* rd_buffer;
 static int32_t rd_buffersize;
 static void	(*rd_flush)(int32_t target, char* buffer);
 
-extern void SV_ShutdownGameProgs();
 
 void Com_BeginRedirect(int32_t target, char* buffer, int32_t buffersize, void(*flush))
 {
@@ -132,10 +133,10 @@ void Com_Printf(char* fmt, ...)
 		return;
 	}
 
-	Con_Print(msg);
+	client.Con_Print(msg);
 
 	// also echo to debugging console
-	Sys_ConsoleOutput(msg);
+	sys.Sys_ConsoleOutput(msg);
 
 	// logfile
 	if (logfile_active && logfile_active->value)
@@ -195,7 +196,7 @@ void Com_Error(int32_t code, char* fmt, ...)
 	static bool recursive;
 
 	if (recursive)
-		Sys_Error("recursive error after: %s", msg);
+		sys.Sys_Error("recursive error after: %s", msg);
 	recursive = true;
 
 	va_start(argptr, fmt);
@@ -211,7 +212,7 @@ void Com_Error(int32_t code, char* fmt, ...)
 	else if (code == ERR_DROP)
 	{
 		Com_Printf("********************\nERROR: %s\n********************\n", msg);
-		SV_Shutdown(va("Server crashed: %s\n", msg), false);
+		server.SV_Shutdown(va("Server crashed: %s\n", msg), false);
 		client.CL_Drop();
 		recursive = false;
 		shutdown_game = true;
@@ -219,8 +220,8 @@ void Com_Error(int32_t code, char* fmt, ...)
 	}
 	else
 	{
-		SV_Shutdown(va("Server fatal crashed: %s\n", msg), false);
-		SV_ShutdownGameProgs();
+		server.SV_Shutdown(va("Server fatal crashed: %s\n", msg), false);
+		server.SV_ShutdownGame();
 		client.CL_Shutdown();
 	}
 
@@ -230,7 +231,7 @@ void Com_Error(int32_t code, char* fmt, ...)
 		logfile = NULL;
 	}
 
-	Sys_Error("%s", msg);
+	sys.Sys_Error("%s", msg);
 }
 
 /*
@@ -243,8 +244,8 @@ do the apropriate things.
 */
 void Com_Quit()
 {
-	SV_Shutdown("Server quit\n", false);
-	SV_ShutdownGameProgs();
+	server.SV_Shutdown("Server quit\n", false);
+	server.SV_ShutdownGame();
 	client.CL_Shutdown();
 
 	if (logfile)
@@ -253,7 +254,7 @@ void Com_Quit()
 		logfile = NULL;
 	}
 
-	Sys_Quit();
+	sys.Sys_Quit();
 }
 
 /*
@@ -1324,7 +1325,7 @@ uint8_t	Com_BlockSequenceCRCByte(uint8_t* base, int32_t length, int32_t sequence
 
 
 	if (sequence < 0)
-		Sys_Error("sequence < 0, this shouldn't happen\n");
+		sys.Sys_Error("sequence < 0, this shouldn't happen\n");
 
 	p = chktbl + (sequence % (sizeof(chktbl) - 4));
 
@@ -1362,7 +1363,6 @@ float crand()
 }
 
 void Key_Init();
-void Render2D_EndLoadingPlaque();
 
 /*
 =============
@@ -1388,7 +1388,7 @@ void Common_Init(int32_t argc, char** argv)
 	char* s;
 
 	if (setjmp(abortframe))
-		Sys_Error("Error during initialization");
+		sys.Sys_Error("Error during initialization");
 
 	z_chain.next = z_chain.prev = &z_chain;
 
@@ -1402,7 +1402,8 @@ void Common_Init(int32_t argc, char** argv)
 	Cmd_Init();
 	Cvar_Init();
 
-	Key_Init();
+	// TODO: MOVE TO COMMON
+	client.Key_Init();
 
 	Gameinfo_Load();
 
@@ -1467,9 +1468,9 @@ void Common_Init(int32_t argc, char** argv)
 	if (dedicated->value)
 		Cmd_AddCommand("quit", Com_Quit);
 
-	Sys_Init();
+	sys.Sys_Init();
 
-	Net_Init();					// Open sockets
+	sys.Net_Init();					// Open sockets
 	Netchan_Init();				// Initialise networking channels
 
 	Localisation_Init();		// Initialise localisaiton system
@@ -1495,7 +1496,7 @@ void Common_Init(int32_t argc, char** argv)
 		Netservices_UpdaterGetUpdate();
 	}
 
-	SV_Init();						// Initialise server variables
+	server.SV_Init();						// Initialise server variables
 	client.CL_Init();						// Initialise the actual game if it's not a dedicated server
 
 	// add + commands from command line
@@ -1520,7 +1521,7 @@ void Common_Init(int32_t argc, char** argv)
 		// so drop the loading plaque
 
 #ifndef DEDICATED_ONLY
-		Render2D_EndLoadingPlaque();
+		client.CL_EndLoading();
 #endif
 	}
 	Com_Printf("====== Zombono Initialized ======\n\n");
@@ -1540,7 +1541,7 @@ void Common_Frame(int32_t msec)
 	if (setjmp(abortframe))
 	{
 		if (shutdown_game)
-			SV_ShutdownGameProgs();
+			server.SV_ShutdownGame();
 		shutdown_game = false;
 		return;			// an ERR_DROP was thrown
 	}
@@ -1580,8 +1581,8 @@ void Common_Frame(int32_t msec)
 
 	if (showtrace->value)
 	{
-		extern	int32_t c_traces, c_brush_traces;
-		extern	int32_t c_pointcontents;
+		extern int32_t c_traces, c_brush_traces;
+		extern int32_t c_pointcontents;
 
 		Com_Printf("%4i traces  %4i points\n", c_traces, c_pointcontents);
 		c_traces = 0;
@@ -1591,27 +1592,30 @@ void Common_Frame(int32_t msec)
 
 	do
 	{
-		s = Sys_ConsoleInput();
+		s = sys.Sys_ConsoleInput();
+
 		if (s)
 			Cbuf_AddText(va("%s\n", s));
-	} while (s);
+	} 
+	while (s);
+	
 	Cbuf_Execute();
 
 	// Poll for netservices transfers
 	Netservices_Frame();
 
 	if (profile_all->value)
-		time_before = Sys_Nanoseconds();
+		time_before = sys.Sys_Nanoseconds();
 
-	SV_Frame(msec);
+	server.SV_Frame(msec);
 
 	if (profile_all->value)
-		time_between = Sys_Nanoseconds();
+		time_between = sys.Sys_Nanoseconds();
 
 	client.CL_Frame(msec);
 
 	if (profile_all->value)
-		time_after = Sys_Nanoseconds();
+		time_after = sys.Sys_Nanoseconds();
 
 	if (profile_all->value)
 	{

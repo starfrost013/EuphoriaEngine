@@ -69,10 +69,16 @@
     <ClCompile Include="common_api.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mathlib.c">
+    <ClCompile Include="swap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="swap.c">
+    <ClCompile Include="..\..\src\util\mathlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util\shared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interface_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,13 +146,19 @@
     <ClInclude Include="include\common_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\game\src\util_shared.h">
+    <ClInclude Include="..\..\src\util\mathlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\game\src\util_shared.c">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\src\util\shared.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mathlib.h">
+    <ClInclude Include="..\..\src\client\include\client_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\server\server_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sys_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

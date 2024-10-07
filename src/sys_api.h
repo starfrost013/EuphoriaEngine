@@ -20,7 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #pragma once
-#include <common/common.h>
+#include <stdint.h>
+#include <stdbool.h>
+
 
 // sys_api.h: Provides system-specific APIs, so euphoriacommon can use them
 // // September 21, 2024
@@ -29,17 +31,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 typedef struct sys_api_s
 {
-	char*	(*Sys_ConsoleInput);
+	int32_t	api_version;
+
+	char*	(*Sys_ConsoleInput)();
 	void	(*Sys_ConsoleOutput)(char* string);
 	void	(*Sys_Error)(char* error, ...);
 	void	(*Sys_Init)();
 	int32_t	(*Sys_Milliseconds)();
+	int32_t	(*Sys_MillisecondsGet)();
+
 	int32_t	(*Sys_Msgbox)(char* title, uint32_t buttons, char* text, ...);
 	int64_t	(*Sys_Nanoseconds)();
+	int64_t	(*Sys_NanosecondsGet)();
 	void	(*Sys_Quit)();
+
+	// Network
+	void	(*Net_Init)();
+	void	(*Net_SendPacket)(netsrc_t sock, int32_t length, void* data, netadr_t to);
+	char*	(*Net_AdrToString)(netadr_t a);
+
 } sys_api_t;
 
-extern sys_api_t system;
+extern sys_api_t sys;
 
 void SystemAPI_Init();
 sys_api_t SystemAPI_Get();

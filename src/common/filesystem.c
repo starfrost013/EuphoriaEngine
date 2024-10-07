@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "common.h"
-
+#include "sys_api.h"
 // define this to dissalow any data but the demo pak file
 //#define	NO_ADDONS
 
@@ -809,7 +809,7 @@ char* Sys_FindFirst(char* path, uint32_t musthave, uint32_t canthave)
 	struct _finddata_t findinfo;
 
 	if (findhandle)
-		Sys_Error("Sys_BeginFind without close");
+		sys.Sys_Error("Sys_BeginFind without close");
 	findhandle = 0;
 
 	COM_FilePath(path, findbase);

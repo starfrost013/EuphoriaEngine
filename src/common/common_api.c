@@ -102,11 +102,7 @@ void CommonAPI_Init()
 	common.Map_WriteAreaBits = Map_WriteAreaBits;
 	common.Map_WritePortalState = Map_WritePortalState;
 
-	// Hunk memory allocator
-	common.Memory_HunkAlloc = Memory_HunkAlloc;
-	common.Memory_HunkBegin = Memory_HunkBegin;
-	common.Memory_HunkEnd = Memory_HunkEnd;
-	common.Memory_HunkFree = Memory_HunkFree;
+	// Zone memory allocator
 	common.Memory_ZoneFree = Memory_ZoneFree;
 	common.Memory_ZoneFreeTags = Memory_ZoneFreeTags;
 	common.Memory_ZoneMalloc = Memory_ZoneMalloc;

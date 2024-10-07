@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // cl_input.c  -- builds an intended movement command to send to the server
 
 #include <client/client.h>
+#include <sys_api.h>
 
 cvar_t* cl_nodelta;
 cvar_t* input_mouse_enabled;
@@ -528,7 +529,7 @@ void CL_SendCmd()
 
 	if (cls.state == ca_connected)
 	{
-		if (cls.netchan.message.cursize || curtime - cls.netchan.last_sent > 1000)
+		if (cls.netchan.message.cursize || sys.Sys_MillisecondsGet() - cls.netchan.last_sent > 1000)
 			Netchan_Transmit(&cls.netchan, 0, buf.data);
 		return;
 	}

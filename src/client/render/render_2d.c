@@ -531,7 +531,7 @@ void Render2D_BeginLoadingPlaque()
 SCR_EndLoadingPlaque
 ================
 */
-void Render2D_EndLoadingPlaque()
+void CL_EndLoading()
 {
 	cls.disable_screen = 0;
 	Con_ClearRecentHistory();

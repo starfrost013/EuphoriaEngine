@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // cpuid.c: CPU Identification services (August 3, 2024)
 #include <common/common.h>
+#include <sys_api.h>
 
 #ifdef __GNUC__
 #include <cpuid.h>
@@ -239,7 +240,7 @@ void CPUID_Init()
 		&& !cpu_warning_dismissed->value)
 	{
 		Com_Printf("CPUID_Init: WARNING: Intel CPU with high failure rates found\n");
-		Sys_Msgbox(cpu_known_defective_warning_title, 0x30, cpu_known_defective_warning_description); // warning box
+		sys.Sys_Msgbox(cpu_known_defective_warning_title, 0x30, cpu_known_defective_warning_description); // warning box
 
 		// make sure the warning is only displayed once
 		Cvar_SetValue("cpu_warning_dismissed", 1.0f);

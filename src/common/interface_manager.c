@@ -18,25 +18,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
-// client_api.c: Client interface object for euphoriacommon import implementation
-// October 3, 2024
+// interface_manager.c: Manages loading interfaces to initialise the various engine subsystems (e.g. client, server, sys...)
+// October 7, 2024
 
-#pragma once 
+#include "common.h"
 #include <client/include/client_api.h>
-#include <client/client.h>
+#include <server/server_api.h>
+#include <sys_api.h>
 
-
-void ClientAPI_Init()
-{
-	client.api_version = CLIENT_API_VERSION;
-	client.CL_Drop = CL_Drop;
-	client.CL_ForwardCmdToServer = Cmd_ForwardToServer;
-	client.CL_Frame = CL_Frame;
-	client.CL_Init = CL_Init;
-	client.CL_Shutdown = CL_Shutdown;
-}
-
-client_api_t ClientAPI_Get()
-{
-	return client; 
-}
+client_api_t client;
+server_api_t server;
+sys_api_t sys;

@@ -189,7 +189,6 @@ void PM_StepSlideMove_()
 		{	// go along the crease
 			if (numplanes != 2)
 			{
-				//				Con_Printf ("clip velocity, numplanes == %i\n",numplanes);
 				VectorCopy3(vec3_origin, pml.velocity);
 				break;
 			}

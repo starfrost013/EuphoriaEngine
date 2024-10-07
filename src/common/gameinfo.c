@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // Gameinfo
 
 #include "common.h"
+#include "sys_api.h"
 
 #define GAMEINFO_PATH "gameinfo.json"
 
@@ -38,7 +39,7 @@ void Gameinfo_Load()
 	FILE* json_file_handle = fopen(GAMEINFO_PATH, "r+");
 
 	if (!json_file_handle)
-		Sys_Error("Failed to load gameinfo.json!");
+		sys.Sys_Error("Failed to load gameinfo.json!");
 
 	JSON_stream json_stream = { 0 };
 
@@ -53,7 +54,7 @@ void Gameinfo_Load()
 		switch (json_next)
 		{
 		case JSON_ERROR:
-			Sys_Error("Malformed gameinfo.json! (1): %s", JSON_get_error(&json_stream));
+			sys.Sys_Error("Malformed gameinfo.json! (1): %s", JSON_get_error(&json_stream));
 			return;
 			// don't parse any arrays or anything like that
 		case JSON_OBJECT:
@@ -64,13 +65,13 @@ void Gameinfo_Load()
 				switch (json_next)
 				{
 				case JSON_ERROR:
-					Sys_Error("Malformed gameinfo.json! (2): %s", JSON_get_error(&json_stream));
+					sys.Sys_Error("Malformed gameinfo.json! (2): %s", JSON_get_error(&json_stream));
 					return;
 				case JSON_STRING:
 					json_string = JSON_get_string(&json_stream, NULL);
 
 					if (json_next == JSON_ERROR)
-						Sys_Error("Malformed gameinfo.json! (3): %s", JSON_get_error(&json_stream));
+						sys.Sys_Error("Malformed gameinfo.json! (3): %s", JSON_get_error(&json_stream));
 
 					// figure out what we just loaded
 					// we have to copy the data we load from the JSON somewhere, because JSON_get_string returns
