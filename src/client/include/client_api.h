@@ -46,5 +46,5 @@ typedef struct client_api_export_s
 
 extern client_api_t client;
 
-void ClientAPI_Init();
-client_api_t ClientAPI_Get();
+client_api_t Interface_GetClient();
+void Interface_SetClient();

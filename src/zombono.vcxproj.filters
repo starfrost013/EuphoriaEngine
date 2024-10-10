@@ -183,9 +183,6 @@
     <ClCompile Include="..\game\src\gameplay\game_monster_flash.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\game\src\q_shared.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="platform\win32\win32_sound.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -208,6 +205,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="server\server_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="base\engine_interface_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -258,9 +258,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="client\include\ui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game\src\q_shared.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="client\include\client_api.h">

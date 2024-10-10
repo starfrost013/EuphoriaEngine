@@ -26,7 +26,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdint.h>
 #include <stdbool.h>
 
-
 #define SERVER_API_VERSION	1
 
 typedef struct server_api_s
@@ -42,5 +41,5 @@ typedef struct server_api_s
 
 extern server_api_t server;
 
-void ServerAPI_Init();
-server_api_t ServerAPI_Get();
+void Interface_SetServer();
+server_api_t Interface_GetServer();

@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <client/client.h>
 
 
-void ClientAPI_Init()
+void Interface_SetClient()
 {
 	client.api_version = CLIENT_API_VERSION;
 	client.CL_Drop = CL_Drop;
@@ -36,7 +36,7 @@ void ClientAPI_Init()
 	client.CL_Shutdown = CL_Shutdown;
 }
 
-client_api_t ClientAPI_Get()
+client_api_t Interface_GetClient()
 {
 	return client; 
 }

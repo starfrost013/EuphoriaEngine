@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 server_api_t server;
 
-void ServerAPI_Init()
+void Interface_SetServer()
 {
 	server.api_version = SERVER_API_VERSION;
 	server.SV_Frame = SV_Frame;
@@ -37,7 +37,7 @@ void ServerAPI_Init()
 	server.SV_ShutdownGame = SV_ShutdownGameProgs;
 }
 
-server_api_t ServerAPI_Get()
+server_api_t Interface_GetServer()
 {
 	return server;
 } 

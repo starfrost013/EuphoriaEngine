@@ -1,3 +1,4 @@
 EXPORTS
-	ClientAPI_Get
-	ServerAPI_Get
+	Interface_GetClient
+	Interface_GetServer
+	Interface_GetSys

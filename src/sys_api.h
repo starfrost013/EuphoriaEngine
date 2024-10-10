@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // sys_api.h: Provides system-specific APIs, so euphoriacommon can use them
 // // September 21, 2024
 
-#define SYS_API_VERSION		1
+#define SYS_API_VERSION	1
 
 typedef struct sys_api_s
 {
@@ -54,5 +54,5 @@ typedef struct sys_api_s
 
 extern sys_api_t sys;
 
-void SystemAPI_Init();
-sys_api_t SystemAPI_Get();
+void Interface_SetSys();
+sys_api_t Interface_GetSys();

@@ -153,7 +153,7 @@ void CommonAPI_Init()
 	common.LittleShortUnsigned = LittleIntUnsigned;
 }
 
-common_api_export_t CommonAPI_Get() 
+common_api_export_t Interface_GetCommon() 
 {
 	return common;
 }

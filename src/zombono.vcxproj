@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="base\engine_interface_manager.c" />
     <ClCompile Include="client\base\client_commands.c" />
     <ClCompile Include="client\base\client_commands_download.c" />
     <ClCompile Include="client\base\client_cvars.c" />
@@ -74,7 +75,6 @@
     <ClCompile Include="client\sound\sound_mix.c" />
     <ClCompile Include="client\render\render_interface.c" />
     <ClCompile Include="..\game\src\gameplay\game_monster_flash.c" />
-    <ClCompile Include="..\game\src\q_shared.c" />
     <ClCompile Include="server\server_api.c" />
     <ClCompile Include="sys_api.c" />
     <ClCompile Include="platform\win32\win32_conproc.c" />
@@ -128,7 +128,6 @@
     <ClInclude Include="common\formats\sp2.h" />
     <ClInclude Include="common\include\common_api.h" />
     <ClInclude Include="game\game.h" />
-    <ClInclude Include="..\game\src\q_shared.h" />
     <ClInclude Include="platform\win32\win32_conproc.h" />
     <ClInclude Include="platform\win32\resource.h" />
     <ClInclude Include="platform\win32\win32_api.h" />

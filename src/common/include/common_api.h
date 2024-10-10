@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // common_api.h: Provides common API stuff for initing euphoriacommon.dll - SHARED across client, server, gamedll
 // September 21, 2024
 
-#define COMMON_API_VERSION		1
+#define COMMON_API_VERSION 2
 
 // Functions exported from euphoriacommon.dll
 typedef struct common_api_export_s
@@ -33,7 +33,7 @@ typedef struct common_api_export_s
 	int32_t		api_version;													// the api version
 
 	// Init & Shutdown
-	void		(*EuphoriaCommon_Init);											// Initialise the common API - this calls Eupho
+	void		(*EuphoriaCommon_Init)(bool is_dedicated);						// Initialise the common API - this calls EuphoriaCommon_Init
 	void		(*EuphoriaCommon_Shutdown);										// Shut down the common API
 		
 	// Command
@@ -190,4 +190,4 @@ typedef struct common_api_export_s
 extern common_api_export_t common;
 
 void CommonAPI_Init();
-common_api_export_t CommonAPI_Get();
+common_api_export_t Interface_GetCommon();

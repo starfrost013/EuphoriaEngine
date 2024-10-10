@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 sys_api_t sys;
 
-void SystemAPI_Init()
+void Interface_SetSys()
 {
 	sys.api_version = SYS_API_VERSION;
 
@@ -48,7 +48,7 @@ void SystemAPI_Init()
 	sys.Net_SendPacket = Net_SendPacket;
 }
 
-sys_api_t SystemAPI_Get()
+sys_api_t Interface_GetSys()
 {
 	return sys;
 }

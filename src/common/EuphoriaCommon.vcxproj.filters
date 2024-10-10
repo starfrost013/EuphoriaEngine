@@ -78,7 +78,7 @@
     <ClCompile Include="..\..\src\util\shared.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="interface_manager.c">
+    <ClCompile Include="common_interface_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
