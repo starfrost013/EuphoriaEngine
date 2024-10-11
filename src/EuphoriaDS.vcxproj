@@ -224,7 +224,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game\game.h" />
-    <ClInclude Include="..\game\src\q_shared.h" />
+    <ClInclude Include="..\game\src\shared.h" />
     <ClInclude Include="common\curl\curl.h" />
     <ClInclude Include="common\curl\curlver.h" />
     <ClInclude Include="common\curl\easy.h" />
@@ -253,7 +253,7 @@
   <ItemGroup>
     <ClCompile Include="common\cpuid.c" />
     <ClCompile Include="common\netservices\netservices_account.c" />
-    <ClCompile Include="..\game\src\q_shared.c" />
+    <ClCompile Include="..\game\src\shared.c" />
     <ClCompile Include="null\cl_null.c" />
     <ClCompile Include="null\glfw_null.c" />
     <ClCompile Include="null\in_null.c" />

@@ -76,7 +76,7 @@
     <ClCompile Include="client\render\render_interface.c" />
     <ClCompile Include="common\netservices\netservices_account.c" />
     <ClCompile Include="..\game\src\gameplay\game_monster_flash.c" />
-    <ClCompile Include="..\game\src\q_shared.c" />
+    <ClCompile Include="..\game\src\shared.c" />
     <ClCompile Include="common\cmd.c" />
     <ClCompile Include="common\gameinfo.c" />
     <ClCompile Include="common\map_loader.c" />
@@ -126,7 +126,7 @@
     <ClInclude Include="client\include\ui.h" />
     <ClInclude Include="client\include\vid.h" />
     <ClInclude Include="game\game.h" />
-    <ClInclude Include="..\game\src\q_shared.h" />
+    <ClInclude Include="..\game\src\shared.h" />
     <ClInclude Include="common\formats\bsp.h" />
     <ClInclude Include="common\curl\curl.h" />
     <ClInclude Include="common\curl\curlver.h" />

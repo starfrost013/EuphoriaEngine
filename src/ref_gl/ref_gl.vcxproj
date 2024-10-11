@@ -286,7 +286,7 @@
     </ManifestResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\game\src\q_shared.c" />
+    <ClCompile Include="..\..\game\src\shared.c" />
     <ClCompile Include="gl_glfw.c" />
     <ClCompile Include="..\win32\q_shwin.c" />
     <ClCompile Include="external\src\glad.c" />
@@ -306,7 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\client\ref.h" />
-    <ClInclude Include="..\..\game\src\q_shared.h" />
+    <ClInclude Include="..\..\game\src\shared.h" />
     <ClInclude Include="..\qcommon\qcommon.h" />
     <ClInclude Include="anorms.h" />
     <ClInclude Include="anormtab.h" />
