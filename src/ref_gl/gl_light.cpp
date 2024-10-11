@@ -445,13 +445,13 @@ Combine and scale multiple lightmaps into the floating format in blocklights
 */
 void R_BuildLightMap(msurface_t* surf, uint8_t* dest, int32_t stride)
 {
-	int32_t			smax, tmax;
-	int32_t			r, g, b, a, max;
-	int32_t			i, j, size;
-	uint8_t* lightmap;
-	float			scale[4] = { 0 };
-	int32_t			nummaps;
-	float* bl;
+	int32_t		smax, tmax;
+	int32_t		r, g, b, a, max;
+	int32_t		i, j, size;
+	uint8_t*	lightmap;
+	float		scale[4] = { 0 };
+	int32_t		nummaps;
+	float*		bl;
 	lightstyle_t* style;
 
 	if (surf->texinfo->flags & (SURF_SKY | SURF_TRANS33 | SURF_TRANS66 | SURF_WARP))
@@ -470,8 +470,8 @@ void R_BuildLightMap(msurface_t* surf, uint8_t* dest, int32_t stride)
 
 		for (i = 0; i < size * 3; i++)
 			s_blocklights[i] = 255;
-		for (maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255;
-			maps++)
+
+		for (maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255; maps++)
 		{
 			style = &r_newrefdef.lightstyles[surf->styles[maps]];
 		}
@@ -479,9 +479,7 @@ void R_BuildLightMap(msurface_t* surf, uint8_t* dest, int32_t stride)
 	}
 
 	// count the # of maps
-	for (nummaps = 0; nummaps < MAXLIGHTMAPS && surf->styles[nummaps] != 255;
-		nummaps++)
-		;
+	for (nummaps = 0; nummaps < MAXLIGHTMAPS && surf->styles[nummaps] != 255; nummaps++);
 
 	lightmap = surf->samples;
 
@@ -490,8 +488,7 @@ void R_BuildLightMap(msurface_t* surf, uint8_t* dest, int32_t stride)
 	{
 		int32_t maps;
 
-		for (maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255;
-			maps++)
+		for (maps = 0; maps < MAXLIGHTMAPS && surf->styles[maps] != 255; maps++)
 		{
 			bl = s_blocklights;
 

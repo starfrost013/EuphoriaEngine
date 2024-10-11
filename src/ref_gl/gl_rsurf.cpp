@@ -54,7 +54,7 @@ typedef struct
 
 	// the lightmap texture data needs to be kept in
 	// main memory so texsubimage can update properly
-	uint8_t		lightmap_buffer[BLOCK_WIDTH * BLOCK_HEIGHT];
+	uint8_t		lightmap_buffer[BLOCK_WIDTH * BLOCK_HEIGHT * LIGHTMAP_BYTES];
 } gllightmapstate_t;
 
 static gllightmapstate_t gl_lms;
@@ -1341,12 +1341,11 @@ GL_CreateSurfaceLightmap
 */
 void GL_CreateSurfaceLightmap(msurface_t* surf)
 {
-	int32_t		smax, tmax;
+	int32_t	smax, tmax;
 	uint8_t* base;
 
 	if (surf->flags & (SURF_DRAWSKY | SURF_DRAWTURB))
 		return;
-
 
 	smax = (surf->extents[0] >> 4) + 1;
 	tmax = (surf->extents[1] >> 4) + 1;

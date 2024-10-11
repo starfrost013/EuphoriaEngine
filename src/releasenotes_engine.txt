@@ -5,19 +5,27 @@ Version 0.2.0-alpha1
 ?????? ??, 2024
 
 NEW FEATURES:
-	* Converted the entire engine to procedural C++. C++'s stricter type system led to the fixing of the following bugs:
-		* <put them here>
-
+	* Converted the entire engine to procedural C++. C++'s stricter type system led to the fixing of various bugs - these are explained in the bugfixes section.
 	* Removed legacy UI engine
 		* Renderer API version 14 - removes Vid_MenuInit
 	* Added a "startserver" command
 		* It takes the form startserver map [gamemode] [maxplayers] [fraglimit] [timelimit] [hostname]
 	* Replaced com_sprintf with snprintf
+	* Rewrote how libraries are loaded to be cleaner and make more sense
 
 BUG FIXES:
 	* Fixed possible copy of invalid Cmd_Argc(1) to wildcard parameter of "dir" command
+	* Fixed lightmap buffer only being large enough for 8-bit colours
+	* Fixed incorrect parameters in several places in the engine
+	* Fixed nonexistent parameters being passed to functions in several places in the engin
+	* Fixed console redirection function pointers not having the correct parameters
+	* Fixed localisation entry struct being used for obtaining the length of a localisation entry during localisatino, resulting in the key being used instead.
+	* [Zombono] Fixed loadout entry struct instance being compared with a gitem_t during armor pickup function 
 
 REMOVALS:
+	* Com_sprintf function - it was replaced with snprintf everywhere
+	* More quake 2 specific hacks
+
 OTHER CHANGES:
 
 

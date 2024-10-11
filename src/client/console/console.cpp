@@ -66,6 +66,15 @@ void Con_ToggleConsole_f()
 	if (cls.input_dest == key_console)
 	{
 		Cvar_Set("paused", "0");
+		
+		//this is dumb and stupid but we're gutting the input system (again)...
+		
+		// TODO: cls.input_dest_previous
+
+		if (cls.state == ca_active)
+			cls.input_dest = key_game;
+		else
+			cls.input_dest = key_menu;
 	}
 	else
 	{

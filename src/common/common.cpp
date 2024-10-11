@@ -877,7 +877,7 @@ void MSG_ReadDeltaUsercmd(sizebuf_t* msg_read, usercmd_t* from, usercmd_t* move)
 
 void MSG_ReadData(sizebuf_t* msg_read, void* data, int32_t len)
 {
-	int32_t 	i;
+	int32_t i;
 
 	for (i = 0; i < len; i++)
 		((uint8_t*)data)[i] = MSG_ReadByte(msg_read);
@@ -985,11 +985,12 @@ void COM_InitArgv(int32_t argc, char** argv)
 
 	if (argc > MAX_NUM_ARGVS)
 		Com_Error(ERR_FATAL, "argc > MAX_NUM_ARGVS");
+
 	com_argc = argc;
 	for (i = 0; i < argc; i++)
 	{
 		if (!argv[i] || strlen(argv[i]) >= MAX_TOKEN_CHARS)
-			memset(com_argv[i], 0x00, strlen(com_argv[i])); // changed from = "" for c++ conversion, speed up later
+			com_argv[i] = (char*)""; // changed from = "" for c++ conversion, speed up later
 		else
 			com_argv[i] = argv[i];
 	}

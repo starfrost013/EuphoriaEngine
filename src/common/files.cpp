@@ -283,8 +283,8 @@ a null buffer will just return the file length without loading
 */
 int32_t FS_LoadFile(const char* path, void** buffer)
 {
-	FILE* h;
-	uint8_t* buf;
+	FILE*		h;
+	uint8_t*	buf;
 	int32_t 	len;
 
 	buf = NULL;	// quiet compiler warning
