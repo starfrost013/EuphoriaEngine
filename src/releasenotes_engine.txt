@@ -5,6 +5,9 @@ Version 0.2.0-alpha1
 ?????? ??, 2024
 
 NEW FEATURES:
+	* Converted the entire engine to procedural C++. C++'s stricter type system led to the fixing of the following bugs:
+		* <put them here>
+
 	* Removed legacy UI engine
 		* Renderer API version 14 - removes Vid_MenuInit
 	* Added a "startserver" command

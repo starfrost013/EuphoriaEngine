@@ -27,107 +27,106 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="client\base\client_commands.c" />
-    <ClCompile Include="client\base\client_commands_download.c" />
-    <ClCompile Include="client\base\client_cvars.c" />
-    <ClCompile Include="client\base\client_commands_demo.c" />
-    <ClCompile Include="client\base\client_event.c" />
-    <ClCompile Include="client\entity\entity_client.c" />
-    <ClCompile Include="client\fx\fx_beam.c" />
-    <ClCompile Include="client\fx\fx_dlight.c" />
-    <ClCompile Include="client\fx\fx_explosion.c" />
-    <ClCompile Include="client\fx\fx_lightstyle.c" />
-    <ClCompile Include="client\intro\intro.c" />
-    <ClCompile Include="client\loadout\loadout.c" />
-    <ClCompile Include="client\input\input_mouse.c" />
-    <ClCompile Include="client\ui\settings\ui_settings_sound.c" />
-    <ClCompile Include="client\ui\settings\ui_settings_graphics.c" />
-    <ClCompile Include="client\ui\ui_killfeed.c" />
-    <ClCompile Include="client\ui\settings\ui_settings_controls.c" />
-    <ClCompile Include="client\ui\settings\ui_settings_game.c" />
-    <ClCompile Include="common\cpuid.c" />
-    <ClCompile Include="common\localisation.c" />
-    <ClCompile Include="client\ui\ui_mainmenu.c" />
-    <ClCompile Include="client\text\text.c" />
-    <ClCompile Include="client\fx\fx_particles.c" />
-    <ClCompile Include="client\input\input_base.c" />
-    <ClCompile Include="client\base\client_main.c" />
-    <ClCompile Include="client\base\client_parse.c" />
-    <ClCompile Include="client\base\client_prediction.c" />
-    <ClCompile Include="client\render\render_2d.c" />
-    <ClCompile Include="client\entity\entity_tempent.c" />
-    <ClCompile Include="client\text\text_font.c" />
-    <ClCompile Include="client\ui\ui.c" />
-    <ClCompile Include="client\ui\ui_eventhandling.c" />
-    <ClCompile Include="client\ui\ui_leaderboard.c" />
-    <ClCompile Include="client\ui\ui_mainmenu_browseservers.c" />
-    <ClCompile Include="client\ui\ui_mainmenu_quickstart.c" />
-    <ClCompile Include="client\ui\ui_mainmenu_quit.c" />
-    <ClCompile Include="client\ui\ui_mainmenu_settings.c" />
-    <ClCompile Include="client\ui\ui_mainmenu_zombietv.c" />
-    <ClCompile Include="client\ui\ui_scripts.c" />
-    <ClCompile Include="client\render\render_3d.c" />
-    <ClCompile Include="client\console\console.c" />
-    <ClCompile Include="client\input\input_events.c" />
-    <ClCompile Include="client\sound\sound_dma.c" />
-    <ClCompile Include="client\sound\sound_mem.c" />
-    <ClCompile Include="client\sound\sound_miniaudio.c" />
-    <ClCompile Include="client\sound\sound_mix.c" />
-    <ClCompile Include="client\render\render_interface.c" />
-    <ClCompile Include="common\netservices\netservices_account.c" />
-    <ClCompile Include="..\game\src\gameplay\game_monster_flash.c" />
-    <ClCompile Include="..\game\src\shared.c" />
-    <ClCompile Include="common\cmd.c" />
-    <ClCompile Include="common\gameinfo.c" />
-    <ClCompile Include="common\map_loader.c" />
-    <ClCompile Include="common\common.c" />
-    <ClCompile Include="common\crc.c" />
-    <ClCompile Include="common\cvar.c" />
-    <ClCompile Include="common\files.c" />
-    <ClCompile Include="common\md4.c" />
-    <ClCompile Include="common\netservices\netservices_base.c" />
-    <ClCompile Include="common\netservices\netservices_masterserver.c" />
-    <ClCompile Include="common\netservices\netservices_update.c" />
-    <ClCompile Include="common\net_chan.c" />
-    <ClCompile Include="common\pdjson.c" />
-    <ClCompile Include="common\pmove.c" />
-    <ClCompile Include="server\server_console_commands.c" />
-    <ClCompile Include="server\server_entities.c" />
-    <ClCompile Include="server\server_game.c" />
-    <ClCompile Include="server\server_init.c" />
-    <ClCompile Include="server\server_main.c" />
-    <ClCompile Include="server\server_master.c" />
-    <ClCompile Include="server\server_send.c" />
-    <ClCompile Include="server\server_user.c" />
-    <ClCompile Include="server\server_world.c" />
-    <ClCompile Include="server\server_hack_protection.c" />
-    <ClCompile Include="win32\conproc.c" />
-    <ClCompile Include="win32\net_wins.c" />
-    <ClCompile Include="win32\q_shwin.c" />
-    <ClCompile Include="win32\snd_win.c" />
-    <ClCompile Include="win32\sys_win.c" />
+    <ClCompile Include="client\base\client_commands.cpp" />
+    <ClCompile Include="client\base\client_commands_download.cpp" />
+    <ClCompile Include="client\base\client_cvars.cpp" />
+    <ClCompile Include="client\base\client_commands_demo.cpp" />
+    <ClCompile Include="client\base\client_event.cpp" />
+    <ClCompile Include="client\entity\entity_client.cpp" />
+    <ClCompile Include="client\fx\fx_beam.cpp" />
+    <ClCompile Include="client\fx\fx_dlight.cpp" />
+    <ClCompile Include="client\fx\fx_explosion.cpp" />
+    <ClCompile Include="client\fx\fx_lightstyle.cpp" />
+    <ClCompile Include="client\intro\intro.cpp" />
+    <ClCompile Include="client\loadout\loadout.cpp" />
+    <ClCompile Include="client\input\input_mouse.cpp" />
+    <ClCompile Include="client\ui\settings\ui_settings_sound.cpp" />
+    <ClCompile Include="client\ui\settings\ui_settings_graphics.cpp" />
+    <ClCompile Include="client\ui\ui_killfeed.cpp" />
+    <ClCompile Include="client\ui\settings\ui_settings_controls.cpp" />
+    <ClCompile Include="client\ui\settings\ui_settings_game.cpp" />
+    <ClCompile Include="common\cpuid.cpp" />
+    <ClCompile Include="common\localisation.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu.cpp" />
+    <ClCompile Include="client\text\text.cpp" />
+    <ClCompile Include="client\fx\fx_particles.cpp" />
+    <ClCompile Include="client\input\input_base.cpp" />
+    <ClCompile Include="client\base\client_main.cpp" />
+    <ClCompile Include="client\base\client_parse.cpp" />
+    <ClCompile Include="client\base\client_prediction.cpp" />
+    <ClCompile Include="client\render\render_2d.cpp" />
+    <ClCompile Include="client\entity\entity_tempent.cpp" />
+    <ClCompile Include="client\text\text_font.cpp" />
+    <ClCompile Include="client\ui\ui.cpp" />
+    <ClCompile Include="client\ui\ui_eventhandling.cpp" />
+    <ClCompile Include="client\ui\ui_leaderboard.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu_browseservers.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu_quickstart.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu_quit.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu_settings.cpp" />
+    <ClCompile Include="client\ui\ui_mainmenu_zombietv.cpp" />
+    <ClCompile Include="client\ui\ui_scripts.cpp" />
+    <ClCompile Include="client\render\render_3d.cpp" />
+    <ClCompile Include="client\console\console.cpp" />
+    <ClCompile Include="client\input\input_events.cpp" />
+    <ClCompile Include="client\sound\sound_dma.cpp" />
+    <ClCompile Include="client\sound\sound_mem.cpp" />
+    <ClCompile Include="client\sound\sound_miniaudio.cpp" />
+    <ClCompile Include="client\sound\sound_mix.cpp" />
+    <ClCompile Include="client\render\render_interface.cpp" />
+    <ClCompile Include="common\netservices\netservices_account.cpp" />
+    <ClCompile Include="..\game\src\gameplay\game_monster_flash.cpp" />
+    <ClCompile Include="..\game\src\shared.cpp" />
+    <ClCompile Include="common\cmd.cpp" />
+    <ClCompile Include="common\gameinfo.cpp" />
+    <ClCompile Include="common\map_loader.cpp" />
+    <ClCompile Include="common\common.cpp" />
+    <ClCompile Include="common\crc.cpp" />
+    <ClCompile Include="common\cvar.cpp" />
+    <ClCompile Include="common\files.cpp" />
+    <ClCompile Include="common\md4.cpp" />
+    <ClCompile Include="common\netservices\netservices_base.cpp" />
+    <ClCompile Include="common\netservices\netservices_masterserver.cpp" />
+    <ClCompile Include="common\netservices\netservices_update.cpp" />
+    <ClCompile Include="common\net_chan.cpp" />
+    <ClCompile Include="common\pdjson.cpp" />
+    <ClCompile Include="common\pmove.cpp" />
+    <ClCompile Include="server\server_console_commands.cpp" />
+    <ClCompile Include="server\server_entities.cpp" />
+    <ClCompile Include="server\server_game.cpp" />
+    <ClCompile Include="server\server_init.cpp" />
+    <ClCompile Include="server\server_main.cpp" />
+    <ClCompile Include="server\server_master.cpp" />
+    <ClCompile Include="server\server_send.cpp" />
+    <ClCompile Include="server\server_user.cpp" />
+    <ClCompile Include="server\server_world.cpp" />
+    <ClCompile Include="server\server_hack_protection.cpp" />
+    <ClCompile Include="win32\conproc.cpp" />
+    <ClCompile Include="win32\net_wins.cpp" />
+    <ClCompile Include="win32\q_shwin.cpp" />
+    <ClCompile Include="win32\snd_win.cpp" />
+    <ClCompile Include="win32\sys_win.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="win32\Zombono.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="client\include\anorms.h" />
-    <ClInclude Include="client\client.h" />
-    <ClInclude Include="client\include\console.h" />
-    <ClInclude Include="client\include\input.h" />
-    <ClInclude Include="client\include\input_keys.h" />
-    <ClInclude Include="client\include\miniaudio.h" />
-    <ClInclude Include="client\include\menu_framework.h" />
-    <ClInclude Include="client\include\ref.h" />
-    <ClInclude Include="client\include\render.h" />
-    <ClInclude Include="client\include\sound_local.h" />
-    <ClInclude Include="client\include\sound_miniaudio.h" />
-    <ClInclude Include="client\include\sound.h" />
-    <ClInclude Include="client\include\ui.h" />
-    <ClInclude Include="client\include\vid.h" />
-    <ClInclude Include="game\game.h" />
-    <ClInclude Include="..\game\src\shared.h" />
-    <ClInclude Include="common\formats\bsp.h" />
+    <ClInclude Include="client\include\anorms.hpp" />
+    <ClInclude Include="client\client.hpp" />
+    <ClInclude Include="client\include\console.hpp" />
+    <ClInclude Include="client\include\input.hpp" />
+    <ClInclude Include="client\include\input_keys.hpp" />
+    <ClInclude Include="client\include\miniaudio.hpp" />
+    <ClInclude Include="client\include\menu_framework.hpp" />
+    <ClInclude Include="client\include\ref.hpp" />
+    <ClInclude Include="client\include\render.hpp" />
+    <ClInclude Include="client\include\sound.hpp" />
+    <ClInclude Include="client\include\sound_miniaudio.hpp" />
+    <ClInclude Include="client\include\ui.hpp" />
+    <ClInclude Include="client\include\vid.hpp" />
+    <ClInclude Include="game\game.hpp" />
+    <ClInclude Include="..\game\src\shared.hpp" />
+    <ClInclude Include="common\formats\bsp.hpp" />
     <ClInclude Include="common\curl\curl.h" />
     <ClInclude Include="common\curl\curlver.h" />
     <ClInclude Include="common\curl\easy.h" />
@@ -140,17 +139,17 @@
     <ClInclude Include="common\curl\typecheck-gcc.h" />
     <ClInclude Include="common\curl\urlapi.h" />
     <ClInclude Include="common\curl\websockets.h" />
-    <ClInclude Include="common\formats\md2.h" />
-    <ClInclude Include="common\netservices\netservices.h" />
-    <ClInclude Include="common\formats\pak.h" />
-    <ClInclude Include="common\pdjson.h" />
-    <ClInclude Include="common\common.h" />
-    <ClInclude Include="common\formats\sp2.h" />
-    <ClInclude Include="common\version.h" />
-    <ClInclude Include="server\server.h" />
-    <ClInclude Include="win32\conproc.h" />
-    <ClInclude Include="win32\resource.h" />
-    <ClInclude Include="win32\winquake.h" />
+    <ClInclude Include="common\formats\md2.hpp" />
+    <ClInclude Include="common\netservices\netservices.hpp" />
+    <ClInclude Include="common\formats\pak.hpp" />
+    <ClInclude Include="common\pdjson.hpp" />
+    <ClInclude Include="common\common.hpp" />
+    <ClInclude Include="common\formats\sp2.hpp" />
+    <ClInclude Include="common\version.hpp" />
+    <ClInclude Include="server\server.hpp" />
+    <ClInclude Include="win32\conproc.hpp" />
+    <ClInclude Include="win32\resource.hpp" />
+    <ClInclude Include="win32\winquake.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="win32\zombono.ico" />
@@ -285,6 +284,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
       <AdditionalOptions>/we4013 /w34505 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -383,6 +383,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
       <AdditionalOptions>/we4013 /w34505 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -421,6 +422,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
       <AdditionalOptions>/we4013 /w34505 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

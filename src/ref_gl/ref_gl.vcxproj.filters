@@ -15,46 +15,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gl_draw.c">
+    <ClCompile Include="..\..\game\src\shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gl_image.c">
+    <ClCompile Include="gl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gl_light.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_model.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_map_loader.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_rmain.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_rmisc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_rsurf.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_warp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\win32\q_shwin.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gl_sprite.c">
+    <ClCompile Include="..\win32\q_shwin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="external\src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gl_glfw.c">
+    <ClCompile Include="gl_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game\src\shared.c">
+    <ClCompile Include="gl_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_map_loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_rmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_rmisc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_rsurf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl_warp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,43 +64,43 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="anorms.h">
+    <ClInclude Include="..\client\ref.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="anormtab.h">
+    <ClInclude Include="..\..\game\src\shared.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gl_local.h">
+    <ClInclude Include="..\qcommon\common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gl_model.h">
+    <ClInclude Include="anorms.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="warpsin.h">
+    <ClInclude Include="anormtab.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\client\ref.h">
+    <ClInclude Include="external\include\glad\gl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="external\include\glad\gl.h">
+    <ClInclude Include="external\include\GLFW\glfw3.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="external\include\KHR\khrplatform.h">
+    <ClInclude Include="external\include\GLFW\glfw3native.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="external\include\GLFW\glfw3.h">
+    <ClInclude Include="external\include\KHR\khrplatform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="external\include\GLFW\glfw3native.h">
+    <ClInclude Include="gl_state.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gl_state.h">
+    <ClInclude Include="gl_local.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\qcommon\qcommon.h">
+    <ClInclude Include="gl_model.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\game\src\shared.h">
+    <ClInclude Include="warpsin.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
