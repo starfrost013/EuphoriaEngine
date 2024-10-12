@@ -180,6 +180,16 @@ bool Vid_LoadRefresh(char* name)
 	ri.Vid_ChangeResolution = Vid_ChangeResolution;
 	ri.Com_Quit = Com_Quit;
 
+	ri.JSON_CloseStream = JSON_close;
+	ri.JSON_GetError = JSON_get_error;
+	ri.JSON_GetLineNumber = JSON_get_lineno;
+	ri.JSON_GetNumber = JSON_get_number;
+	ri.JSON_GetPosition = JSON_get_position;
+	ri.JSON_GetString = JSON_get_string;
+	ri.JSON_Next = JSON_next;
+	ri.JSON_OpenStream = JSON_open_stream;
+	ri.JSON_Peek = JSON_peek;
+
 	if ((GetRefAPI = (GetRefAPI_t)GetProcAddress(reflib_library, "GetRefAPI")) == 0)
 		Com_Error(ERR_FATAL, "GetProcAddress failed on %s", name);
 

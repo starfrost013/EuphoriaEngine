@@ -128,7 +128,7 @@ typedef struct refdef_s
 	particle_t*		particles;
 } refdef_t;
 
-#define	API_VERSION		14
+#define	API_VERSION		15
 
 //
 // these are the functions exported by the refresh module
@@ -139,10 +139,10 @@ typedef struct refexport_s
 	int32_t api_version;
 
 	// called when the library is loaded
-	bool	(*Init) ();
+	bool	(*Init)();
 
 	// called before the library is unloaded
-	void	(*Shutdown) ();
+	void	(*Shutdown)();
 
 	// All data that will be used in a level should be
 	// registered before rendering any frames to prevent disk hits,
@@ -206,7 +206,7 @@ typedef struct
 	char*	(*Cmd_Argv)(int32_t i);
 	void	(*Cmd_ExecuteText)(int32_t exec_when, char* text);
 
-	void	(*Con_Printf) (int32_t print_level, const char* str, ...);
+	void	(*Con_Printf)(int32_t print_level, const char* str, ...);
 
 	// files will be memory mapped read only
 	// the returned buffer may be part of a larger pak file,
@@ -225,6 +225,17 @@ typedef struct
 	void	(*Cvar_SetValue)(const char* name, float value);
 	cvar_t* (*Cvar_ForceSet)(const char* var_name, const char* value);
 
+	// JSON API 
+	void	(*JSON_OpenStream)(JSON_stream* json, FILE* stream);
+	void	(*JSON_CloseStream)(JSON_stream* json);
+	enum JSON_type	(*JSON_Next)(JSON_stream* json);
+	enum JSON_type	(*JSON_Peek)(JSON_stream* json);
+	double	(*JSON_GetNumber)(JSON_stream* json);
+	const char*		(*JSON_GetString)(JSON_stream* json, size_t* length);
+	const char*		(*JSON_GetError)(JSON_stream* json);
+	size_t	(*JSON_GetLineNumber)(JSON_stream* json);
+	size_t	(*JSON_GetPosition)(JSON_stream* json);
+
 	void	(*Vid_ChangeResolution)();
 
 	void	(*Com_Quit)();
@@ -232,5 +243,5 @@ typedef struct
 
 
 // this is the only function actually exported at the linker level
-typedef	refexport_t	(*GetRefAPI_t) (refimport_t);
+typedef	refexport_t	(*GetRefAPI_t)(refimport_t);
 
