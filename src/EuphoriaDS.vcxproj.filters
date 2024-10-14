@@ -15,192 +15,195 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="server\server.h">
+    <ClInclude Include="game\game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="win32\conproc.h">
+    <ClInclude Include="..\game\src\shared.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="win32\resource.h">
+    <ClInclude Include="common\curl\curl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="win32\winquake.h">
+    <ClInclude Include="common\curl\curlver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game\game.h">
+    <ClInclude Include="common\curl\easy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\curl.h">
+    <ClInclude Include="common\curl\header.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\curlver.h">
+    <ClInclude Include="common\curl\mprintf.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\easy.h">
+    <ClInclude Include="common\curl\multi.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\header.h">
+    <ClInclude Include="common\curl\options.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\mprintf.h">
+    <ClInclude Include="common\curl\stdcheaders.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\multi.h">
+    <ClInclude Include="common\curl\system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\options.h">
+    <ClInclude Include="common\curl\typecheck-gcc.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\stdcheaders.h">
+    <ClInclude Include="common\curl\urlapi.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\system.h">
+    <ClInclude Include="common\curl\websockets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\typecheck-gcc.h">
+    <ClInclude Include="common\formats\bsp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\urlapi.h">
+    <ClInclude Include="common\formats\md2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\curl\websockets.h">
+    <ClInclude Include="common\formats\pak.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\formats\bsp.h">
+    <ClInclude Include="common\formats\sp2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\formats\md2.h">
+    <ClInclude Include="common\netservices\netservices.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\formats\pak.h">
+    <ClInclude Include="common\pdjson.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\formats\sp2.h">
+    <ClInclude Include="common\common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\netservices\netservices.h">
+    <ClInclude Include="common\version.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\pdjson.h">
+    <ClInclude Include="server\server.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\common.h">
+    <ClInclude Include="win32\conproc.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common\version.h">
+    <ClInclude Include="win32\resource.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\game\src\shared.h">
+    <ClInclude Include="win32\winquake.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\formats\zmdl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="server\server_console_commands.c">
+    <ClCompile Include="common\cpuid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_entities.c">
+    <ClCompile Include="common\netservices\netservices_account.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_game.c">
+    <ClCompile Include="..\game\src\shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_hack_protection.c">
+    <ClCompile Include="null\cl_null.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_init.c">
+    <ClCompile Include="null\glfw_null.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_main.c">
+    <ClCompile Include="null\in_null.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_master.c">
+    <ClCompile Include="null\vid_null.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_send.c">
+    <ClCompile Include="common\cmd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_user.c">
+    <ClCompile Include="common\common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server\server_world.c">
+    <ClCompile Include="common\crc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\conproc.c">
+    <ClCompile Include="common\cvar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\net_wins.c">
+    <ClCompile Include="common\files.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\q_shwin.c">
+    <ClCompile Include="common\gameinfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\sys_win.c">
+    <ClCompile Include="common\localisation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="null\vid_null.c">
+    <ClCompile Include="common\map_loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="null\glfw_null.c">
+    <ClCompile Include="common\md4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="null\cl_null.c">
+    <ClCompile Include="common\netservices\netservices_base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="null\in_null.c">
+    <ClCompile Include="common\netservices\netservices_masterserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\cmd.c">
+    <ClCompile Include="common\netservices\netservices_update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\common.c">
+    <ClCompile Include="common\net_chan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\crc.c">
+    <ClCompile Include="common\pdjson.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\cvar.c">
+    <ClCompile Include="common\pmove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\files.c">
+    <ClCompile Include="server\server_console_commands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\gameinfo.c">
+    <ClCompile Include="server\server_entities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\localisation.c">
+    <ClCompile Include="server\server_game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\map_loader.c">
+    <ClCompile Include="server\server_hack_protection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\md4.c">
+    <ClCompile Include="server\server_init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\netservices\netservices_base.c">
+    <ClCompile Include="server\server_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\netservices\netservices_masterserver.c">
+    <ClCompile Include="server\server_master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\netservices\netservices_update.c">
+    <ClCompile Include="server\server_send.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\net_chan.c">
+    <ClCompile Include="server\server_user.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\pdjson.c">
+    <ClCompile Include="server\server_world.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\pmove.c">
+    <ClCompile Include="win32\conproc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\cpuid.c">
+    <ClCompile Include="win32\net_wins.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="common\netservices\netservices_account.c">
+    <ClCompile Include="win32\q_shwin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\game\src\shared.c">
+    <ClCompile Include="win32\sys_win.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

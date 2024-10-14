@@ -180,7 +180,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;CURL_STATICLIB;WIN32;PLAYTEST;DEDICATED_ONLY;_CRT_SECURE_NO_WARNINGS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;CURL_STATICLIB;WIN32;RELEASE;DEDICATED_ONLY;_CRT_SECURE_NO_WARNINGS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4312;4996</DisableSpecificWarnings>
@@ -223,6 +223,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common\formats\zmdl.hpp" />
     <ClInclude Include="game\game.hpp" />
     <ClInclude Include="..\game\src\shared.hpp" />
     <ClInclude Include="common\curl\curl.hpp" />

@@ -19,8 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 //#include <ref_gl/gl_local.hpp>
-#include <stdint.hpp>
-#include <stdbool.hpp>
+#include <cstdint>
+#include <cstdbool>
 
 // glimp_null.c : Null GLImp implementation for pure dedicated server
 
@@ -34,6 +34,7 @@ void GLimp_EndFrame( void )
 
 int32_t GLimp_Init( void *hinstance, void *hWnd )
 {
+	return 0; 
 }
 
 void GLimp_Shutdown( void )

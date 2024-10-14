@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // Vid_null.c -- null video driver to aid porting efforts (and for the dedicated server binary)
 // this assumes that one of the refs is statically linked to the executable
 
-#include "../client/client.h"
+#include "../client/client.hpp"
 
 refexport_t	re;
 
