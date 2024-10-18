@@ -7,6 +7,3 @@
 [submodule "webservices"]
 	path = webservices
 	url = https://github.com/starfrost013/ZombonoWebservices.git
-[submodule "game"]
-	path = game
-	url = https://github.com/starfrost013/EuphoriaExample.git
