@@ -32,6 +32,7 @@
     <ClCompile Include="client\base\client_cvars.cpp" />
     <ClCompile Include="client\base\client_commands_demo.cpp" />
     <ClCompile Include="client\base\client_event.cpp" />
+    <ClCompile Include="client\console\console_ui.cpp" />
     <ClCompile Include="client\entity\entity_client.cpp" />
     <ClCompile Include="client\fx\fx_beam.cpp" />
     <ClCompile Include="client\fx\fx_dlight.cpp" />

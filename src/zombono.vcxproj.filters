@@ -252,6 +252,9 @@
     <ClCompile Include="win32\sys_win.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="client\console\console_ui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="win32\Zombono.rc">

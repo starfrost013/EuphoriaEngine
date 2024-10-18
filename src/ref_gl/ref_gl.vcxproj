@@ -303,6 +303,7 @@
     <ClCompile Include="gl_rsurf.cpp" />
     <ClCompile Include="gl_sprite.cpp" />
     <ClCompile Include="gl_warp.cpp" />
+    <ClCompile Include="model\gl_zmdl_load.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ref_gl.def" />

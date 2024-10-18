@@ -128,9 +128,9 @@ Save the console contents out to a file
 */
 void Con_Dump_f()
 {
-	int32_t 	l, x;
-	char* line;
-	FILE* f;
+	int32_t l, x;
+	char*	line;
+	FILE*	f;
 	char	buffer[1024];
 	char	name[MAX_OSPATH];
 

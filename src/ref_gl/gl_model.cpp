@@ -150,8 +150,8 @@ void Mod_LoadAliasModel(model_t* mod, void* buffer)
 	//
 	// load the glcmds
 	//
-	pincmd = (int*)((uint8_t*)pinmodel + pheader->ofs_glcmds);
-	poutcmd = (int*)((uint8_t*)pheader + pheader->ofs_glcmds);
+	pincmd = (int32_t*)((uint8_t*)pinmodel + pheader->ofs_glcmds);
+	poutcmd = (int32_t*)((uint8_t*)pheader + pheader->ofs_glcmds);
 	for (i = 0; i < pheader->num_glcmds; i++)
 		poutcmd[i] = LittleInt(pincmd[i]);
 

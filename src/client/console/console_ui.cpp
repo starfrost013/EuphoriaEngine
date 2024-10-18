@@ -20,49 +20,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include <cstdint>
+#include <client\client.hpp>
+#include <client\include\console.hpp>
 
-//
-// Zmdl.hpp - ZOmbono Model (even though it's dead) skeletal animation format
-// October 14, 2024
-//
-
-#define ZMDL_HEADER		"ZMDL"
-#define ZMDL_VERSION	1
-
-typedef enum zmdl_section_id
+void ConsoleUI_Init()
 {
-	// total length 
-	// etc
-	zmdl_section_settings = 0,
+	UI_AddUI("ConsoleUI", ConsoleUI_Create);
+}
 
-	// tree
-	//    bonecontroller
-	//			|
-	//			|
-	//			|
-	//      bone pivot
-	//			|
-	//			|
-	//			|
-	//		  vertex
-	zmdl_section_skeleton = 1,
-
-	zmdl_section_tris = 2,
-
-	zmdl_section_textures = 3,
-
-	// <list of keyframes> 
-	// <position>
-	// <delta of animation from previous keyframe>
-	zmdl_section_animation = 4,
-
-
-} zmdl_section_id;
-
-// ZMDL_HEADER
-typedef struct zmdl_header_s
+bool ConsoleUI_Create()
 {
-	char		magic[4];
-	uint8_t		version;
-} zmdl_header_t;
+
+}

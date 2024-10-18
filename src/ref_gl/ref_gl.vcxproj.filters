@@ -57,6 +57,9 @@
     <ClCompile Include="gl_warp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="model\gl_zmdl_load.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ref_gl.def">
