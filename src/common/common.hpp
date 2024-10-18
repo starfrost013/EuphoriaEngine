@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <common/formats/bsp.hpp>
 #include <common/formats/md2.hpp>
 #include <common/formats/sp2.hpp>
+
 #include <../game/src/shared.hpp>
 #include "netservices/netservices.hpp" // hmm
 #include "pdjson.hpp"

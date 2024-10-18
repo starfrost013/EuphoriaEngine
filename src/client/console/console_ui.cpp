@@ -25,10 +25,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void ConsoleUI_Init()
 {
-	UI_AddUI("ConsoleUI", ConsoleUI_Create);
+	UI_Add("ConsoleUI", ConsoleUI_Create);
 }
 
 bool ConsoleUI_Create()
 {
-
+	Com_Printf("Creating console UI...\n");
+	return true; 
 }

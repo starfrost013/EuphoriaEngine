@@ -58,3 +58,6 @@ void Con_Clear_f();
 void Con_DrawRecentHistory();
 void Con_ClearRecentHistory();
 void Con_ToggleConsole_f();
+
+// Console UI
+bool ConsoleUI_Create();

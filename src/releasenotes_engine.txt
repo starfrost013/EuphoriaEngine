@@ -27,7 +27,7 @@ REMOVALS:
 	* More quake 2 specific hacks
 
 OTHER CHANGES:
-
+	* Renamed UI_AddUI to UI_Add
 
 Version 0.1.0-pre2
 August 24, 2024

@@ -79,29 +79,29 @@ bool UI_Init()
 	bool successful;
 
 	Com_Printf("UI_Init: running UI creation scripts\n");
-	successful = UI_AddUI("TeamUI", UI_TeamUICreate);
-	if (successful) successful = UI_AddUI("TeamWavesUI", UI_TeamWavesUICreate);	
-	if (successful) successful = UI_AddUI("LeaderboardUI", UI_LeaderboardUICreate);
-	if (successful) successful = UI_AddUI("BamfuslicatorUI", UI_BamfuslicatorUICreate);
-	if (successful) successful = UI_AddUI("TimeUI", UI_TimeUICreate);
-	if (successful) successful = UI_AddUI("ScoreUI", UI_ScoreUICreate);
-	if (successful) successful = UI_AddUI("LoadoutUI", UI_LoadoutUICreate);
-	if (successful) successful = UI_AddUI("MainMenuUI", UI_MainMenuUICreate);
-	if (successful) successful = UI_AddUI("MainMenuQuickstartUI", UI_MainMenuQuickstartUICreate);
-	if (successful) successful = UI_AddUI("MainMenuBrowseServersUI", UI_MainMenuBrowseServersUICreate);
-	if (successful) successful = UI_AddUI("MainMenuSettingsUI", UI_MainMenuSettingsUICreate);
-	if (successful) successful = UI_AddUI("MainMenuZombieTVUI", UI_MainMenuZombieTVUICreate);
-	if (successful) successful = UI_AddUI("MainMenuQuitUI", UI_MainMenuQuitUICreate);
-	if (successful) successful = UI_AddUI("SettingsControlsUI", UI_SettingsControlsUICreate);
-	if (successful) successful = UI_AddUI("SettingsGameUI", UI_SettingsGameUICreate);
-	if (successful) successful = UI_AddUI("SettingsGraphicsUI", UI_SettingsGraphicsUICreate);
-	if (successful) successful = UI_AddUI("SettingsSoundUI", UI_SettingsSoundUICreate);
-	if (successful) successful = UI_AddUI("KillFeedUI", UI_KillFeedUICreate);
+	successful = UI_Add("TeamUI", UI_TeamUICreate);
+	if (successful) successful = UI_Add("TeamWavesUI", UI_TeamWavesUICreate);	
+	if (successful) successful = UI_Add("LeaderboardUI", UI_LeaderboardUICreate);
+	if (successful) successful = UI_Add("BamfuslicatorUI", UI_BamfuslicatorUICreate);
+	if (successful) successful = UI_Add("TimeUI", UI_TimeUICreate);
+	if (successful) successful = UI_Add("ScoreUI", UI_ScoreUICreate);
+	if (successful) successful = UI_Add("LoadoutUI", UI_LoadoutUICreate);
+	if (successful) successful = UI_Add("MainMenuUI", UI_MainMenuUICreate);
+	if (successful) successful = UI_Add("MainMenuQuickstartUI", UI_MainMenuQuickstartUICreate);
+	if (successful) successful = UI_Add("MainMenuBrowseServersUI", UI_MainMenuBrowseServersUICreate);
+	if (successful) successful = UI_Add("MainMenuSettingsUI", UI_MainMenuSettingsUICreate);
+	if (successful) successful = UI_Add("MainMenuZombieTVUI", UI_MainMenuZombieTVUICreate);
+	if (successful) successful = UI_Add("MainMenuQuitUI", UI_MainMenuQuitUICreate);
+	if (successful) successful = UI_Add("SettingsControlsUI", UI_SettingsControlsUICreate);
+	if (successful) successful = UI_Add("SettingsGameUI", UI_SettingsGameUICreate);
+	if (successful) successful = UI_Add("SettingsGraphicsUI", UI_SettingsGraphicsUICreate);
+	if (successful) successful = UI_Add("SettingsSoundUI", UI_SettingsSoundUICreate);
+	if (successful) successful = UI_Add("KillFeedUI", UI_KillFeedUICreate);
 	ui_initialised = successful;
 	return successful;
 }
 
-bool UI_AddUI(const char* control_name, bool (*on_create)())
+bool UI_Add(const char* control_name, bool (*on_create)())
 {
 	Com_DPrintf("Creating UI: %s\n", control_name);
 	current_ui = &ui_list[num_uis];
