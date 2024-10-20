@@ -7,7 +7,10 @@ Version 0.2.0-alpha1
 NEW FEATURES:
 	* Converted the entire engine to procedural C++. C++'s stricter type system led to the fixing of various bugs - these are explained in the bugfixes section.
 	* Removed legacy UI engine
-		* Renderer API version 14 - removes Vid_MenuInit
+	* Restarted game code from scratch
+	* Completely reset all protocol versions to 1
+	* Renderer API removes Vid_MenuInit
+		* Add JSON functions
 	* Added a "startserver" command
 		* It takes the form startserver map [gamemode] [maxplayers] [fraglimit] [timelimit] [hostname]
 	* Replaced com_sprintf with snprintf

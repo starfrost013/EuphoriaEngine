@@ -220,9 +220,9 @@ void Com_PageInMemory(uint8_t* buffer, int32_t size);
 //=============================================
 
 // portable case insensitive compare
-int32_t Q_stricmp(char* s1, char* s2);
-int32_t Q_strcasecmp(char* s1, char* s2);
-int32_t Q_strncasecmp(char* s1, char* s2, int32_t n);
+int32_t Q_stricmp(const char* s1, const char* s2);
+int32_t Q_strcasecmp(const char* s1, const char* s2);
+int32_t Q_strncasecmp(const char* s1, const char* s2, int32_t n);
 
 //=============================================
 
@@ -251,7 +251,7 @@ char*	va(char* format, ...);
 #define	MAX_INFO_VALUE		64
 #define	MAX_INFO_STRING		512
 
-const char* Info_ValueForKey(char* s, char* key);
+const char* Info_ValueForKey(char* s, const char* key);
 void Info_RemoveKey(char* s, char* key);
 void Info_SetValueForKey(char* s, char* key, char* value);
 bool Info_Validate(char* s);
@@ -295,7 +295,7 @@ void Sys_FindClose();
 // this is only here so the functions in q_shared.c and q_shwin.c can link
 
 // are these still needed?
-void Sys_Error(const char *error, ...);
+__declspec(noreturn) void Sys_Error(const char *error, ...);
 void Com_Printf(const char *msg, ...);
 
 

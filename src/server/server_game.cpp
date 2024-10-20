@@ -421,7 +421,7 @@ void SV_InitGameProgs()
 	import.Cmd_Argc = Cmd_Argc;
 	import.Cmd_Argv = Cmd_Argv;
 	import.Cmd_Args = Cmd_Args;
-	import.AddCommandString = Cbuf_AddText;
+	import.Cbuf_AddText = Cbuf_AddText;
 
 	import.DebugGraph = Render2D_DebugGraph;
 	import.SetAreaPortalState = Map_SetAreaPortalState;
@@ -435,8 +435,8 @@ void SV_InitGameProgs()
 		return;
 	}
 
-	if (ge->apiversion != GAME_API_VERSION)
-		Com_Error(ERR_DROP, "game is version %i, not %i", ge->apiversion,
+	if (ge->api_version != GAME_API_VERSION)
+		Com_Error(ERR_DROP, "game is version %i, not %i", ge->api_version,
 			GAME_API_VERSION);
 
 	ge->Game_Init();

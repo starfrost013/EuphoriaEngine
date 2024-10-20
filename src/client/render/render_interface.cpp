@@ -195,7 +195,7 @@ bool Vid_LoadRefresh(char* name)
 
 	re = GetRefAPI(ri);
 
-	if (re.api_version != API_VERSION)
+	if (re.api_version != REF_API_VERSION)
 	{
 		Vid_FreeReflib();
 		Com_Error(ERR_FATAL, "%s has incompatible api_version", name);

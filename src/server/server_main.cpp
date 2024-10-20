@@ -198,7 +198,7 @@ void SVC_DirectConnect()
 	userinfo[sizeof(userinfo) - 1] = 0;
 
 	// force the IP key/value pair so the game can filter based on ip
-	Info_SetValueForKey(userinfo, "ip", Net_AdrToString(net_from));
+	Info_SetValueForKey(userinfo, (char*)"ip", Net_AdrToString(net_from)); // horrible
 
 	// attractloop servers are ONLY for local clients
 	if (sv.attractloop)

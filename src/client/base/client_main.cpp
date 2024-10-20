@@ -462,8 +462,8 @@ CL_FixCvarCheats
 
 typedef struct cheatvar_s
 {
-	char* name;
-	char* value;
+	const char* name;
+	const char* value;
 	cvar_t* var;
 } cheatvar_t;
 

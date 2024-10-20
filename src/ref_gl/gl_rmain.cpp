@@ -1126,7 +1126,7 @@ refexport_t GetRefAPI(refimport_t rimp)
 
 	ri = rimp;
 
-	re.api_version = API_VERSION;
+	re.api_version = REF_API_VERSION;
 
 	re.BeginRegistration = R_BeginRegistration;
 	re.RegisterModel = R_RegisterModel;
@@ -1173,7 +1173,12 @@ refexport_t GetRefAPI(refimport_t rimp)
 
 #ifndef REF_HARD_LINKED
 // this is only here so the functions in q_shared.c and q_shwin.c can link
-void Sys_Error(const char* error, ...)
+#ifdef _MSC_VER
+// this gets rid of RetardCompiler warnings
+__declspec(noreturn) void Sys_Error(const char* error, ...)
+#else
+__attribute__((noreturn)) void Sys_Error(const char* error, ...)
+#endif
 {
 	va_list		argptr;
 	char		text[1024];

@@ -911,7 +911,7 @@ void	Sys_UnloadGameLibrary();
 
 char*	Sys_ConsoleInput();
 void	Sys_ConsoleOutput(char* value);
-__declspec(noreturn) void Sys_Error(const char* error, ...);
+__declspec(noreturn) void Sys_Error(const char* error, ...); // declspec for linker optimisation
 int32_t	Sys_Msgbox(const char* title, uint32_t buttons, const char* text, ...);
 void	Sys_Quit();
 char*	Sys_GetClipboardData(void);

@@ -289,7 +289,7 @@
     </ManifestResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\game\src\shared.cpp" />
+    <ClCompile Include="..\..\src\shared\shared.cpp" />
     <ClCompile Include="gl_glfw.cpp" />
     <ClCompile Include="..\win32\q_shwin.cpp" />
     <ClCompile Include="external\src\glad.c" />
@@ -309,8 +309,8 @@
     <None Include="ref_gl.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\client\ref.hpp" />
-    <ClInclude Include="..\..\game\src\shared.hpp" />
+    <ClInclude Include="..\client\include\ref.hpp" />
+    <ClInclude Include="..\..\src\shared\shared.hpp" />
     <ClInclude Include="..\qcommon\common.hpp" />
     <ClInclude Include="anorms.hpp" />
     <ClInclude Include="anormtab.hpp" />

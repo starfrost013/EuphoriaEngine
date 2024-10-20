@@ -673,7 +673,7 @@ varargs versions of all text functions.
 FIXME: make this buffer size safe someday
 ============
 */
-char* va(char* format, ...)
+char* va(const char* format, ...)
 {
 	va_list		argptr;
 	static char		string[1024];
@@ -684,7 +684,6 @@ char* va(char* format, ...)
 
 	return string;
 }
-
 
 char com_token[MAX_TOKEN_CHARS];
 
@@ -801,7 +800,7 @@ void Com_PageInMemory(uint8_t* buffer, int32_t size)
 */
 
 // FIXME: replace all Q_stricmp with Q_strcasecmp
-int32_t Q_stricmp(char* s1, char* s2)
+int32_t Q_stricmp(const char* s1, const char* s2)
 {
 #if defined(WIN32)
 	return _stricmp(s1, s2);
@@ -810,8 +809,7 @@ int32_t Q_stricmp(char* s1, char* s2)
 #endif
 }
 
-
-int32_t Q_strncasecmp(char* s1, char* s2, int32_t n)
+int32_t Q_strncasecmp(const char* s1, const char* s2, int32_t n)
 {
 	int32_t 	c1, c2;
 
@@ -838,7 +836,7 @@ int32_t Q_strncasecmp(char* s1, char* s2, int32_t n)
 	return 0;		// strings are equal
 }
 
-int32_t Q_strcasecmp(char* s1, char* s2)
+int32_t Q_strcasecmp(const char* s1, const char* s2)
 {
 	return Q_strncasecmp(s1, s2, 99999);
 }
@@ -859,7 +857,7 @@ Searches the string for the given
 key and returns the associated value, or an empty string.
 ===============
 */
-const char* Info_ValueForKey(char* s, char* key)
+const char* Info_ValueForKey(char* s, const char* key)
 {
 	char	pkey[512];
 	static	char value[2][512];	// use two buffers so compares
