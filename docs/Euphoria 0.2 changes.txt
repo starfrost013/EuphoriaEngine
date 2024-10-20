@@ -1,0 +1,89 @@
+Euphoria 0.2 changes
+
+OVERALL ENGINE DESIGN:
+* Qcommon split into its own dll - loaded by both game and engine, EuphoriaCommon.dll
+* Loading process goes like this:
+* Engine exe runs
+* Loads euphoriacommon
+* Euphoriacommon loads client, server, sys interface objects
+* Loads game with passed client, server, sys objects in GameAPI
+* Game split into gamex64 and uix64 (for client-side game ui, hooks into engine UI subsystem)
+* Move from C to procedural C++ for creature comfort
+* Modifiable tickrate (sv_tickrate) already done
+
+* Memory allocation changes:
+* Remove hunk allocation (VirtualAlloc) - check performance characteristics first compared to calloc (for zone alloc)
+* Maintain system of preallocating large amounts of memory for BSP etc, but start with a pool of 32mb (16mb?), and expand for larger bsps using realloc, instead
+of reserving 500mb+
+
+* Try to see if the map can be loaded only in euphoriacommon
+
+UI:
+* Old quake2 UI system removed (already done)
+
+CONSOLE:
+* Make it a window - integrate it with the existing UI system
+* Make it resizable?
+
+GAME DLL:
+* Completely rip out and replace the game logic that starts with quake 1
+* Current Game DLL is too tied to a tickrate of 10Hz
+* Allow the gamedll to provide ui (provided via a client-sided UI DLL)
+* Get a nice new set of standard entities for platforms, or whatever
+
+MODELS:
+* Model, animation, and weapon system is too tied up
+* Replace existing MD2 system with a basic skeletal animation system, the HL1 system seems to be well documented...clean that up and implement it
+* The new "zmdl" (to follow on from zbsp) system will be a container format with several sections
+* Sections will include
+* Global animation settings (e.g. speed)
+* Model tris
+* Model textures - could also be a reference to a tga within the pak
+* Model skeleton bones/collections of bones
+* Animations and their keyframes
+* The keyframes will be smoothly interpolated based on speed.
+
+RENDERER:
+* Rewrite frustum culling (it sucks)
+* Add overlay textures (textures drawn on top of other brush object textures in a second pass)
+* SO you don't have to create multiple variants of the same textures
+* Remove SP2?
+* Eventually: GL3+ renderer
+* Is it possible to not load the map in the renderer and instead only in euphoriacommon?
+
+ENTITY SYSTEM:
+* Possible complete rewrite in object-oriented c++
+* Allow destructible entities
+* Allow destructible brushes
+* How hard are terrain displacements to implement?
+
+WEAPONS / ITEMS:
+* Will be decoupled from animations, they will be defined in JSON files in the pak
+* Classname
+* Defined "actions" (pickup/use primary/use secondary/…) - items and weapons can use both
+* Each has a reload speed, firing speed, recoil, noise (possible modifications), reward(?)?
+
+AUDIO:
+* Replace WASAPI with MiniAudio
+* Update MiniAudio
+
+NETWORK:
+* Introduce event system (already done)
+* Move baseurl for netservices to the gameinfo.json file
+* Allow for stat tracking, accounts, master servers, ...
+
+TOOLS:
+* "mdlcvt": Convert from OBJ, FBX, MD2, Goldsrc MDL, ... to ZMDL
+* Optimise ZBSP 
+* Add more stuff to it
+* Improve MKPAK
+
+LEVELS:
+* Consider scripts in levels
+* Allow brushes to be removed for semi permanent destruction
+	* Add effects to make this happen
+
+PHYSICS:
+* New physics engine - won't be anything fancy, similar to qphysics
+* Required because the player physics are basically their own system
+* Also will prevent quake players being cracked automatically...

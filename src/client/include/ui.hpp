@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include <../game/src/shared.hpp>
+#include <shared/shared.hpp>
 
 //
 // ui/*.c

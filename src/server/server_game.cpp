@@ -408,9 +408,9 @@ void SV_InitGameProgs()
 	import.WriteColor = PF_WriteColor;
 	import.WriteAngle = PF_WriteAngle;
 
-	import.TagMalloc = Memory_ZoneMallocTagged;
-	import.TagFree = Memory_ZoneFree;
-	import.FreeTags = Memory_ZoneFreeTags;
+	import.Memory_ZoneMallocTagged = Memory_ZoneMallocTagged;
+	import.Memory_ZoneFree = Memory_ZoneFree;
+	import.Memory_ZoneFreeTags = Memory_ZoneFreeTags;
 
 	import.Cvar_Get = Cvar_Get;
 	import.Cvar_Set = Cvar_Set;

@@ -225,7 +225,6 @@
   <ItemGroup>
     <ClInclude Include="common\formats\zmdl.hpp" />
     <ClInclude Include="game\game.hpp" />
-    <ClInclude Include="..\game\src\shared.hpp" />
     <ClInclude Include="common\curl\curl.hpp" />
     <ClInclude Include="common\curl\curlver.hpp" />
     <ClInclude Include="common\curl\easy.hpp" />
@@ -247,6 +246,7 @@
     <ClInclude Include="common\common.hpp" />
     <ClInclude Include="common\version.hpp" />
     <ClInclude Include="server\server.hpp" />
+    <ClInclude Include="shared\shared.hpp" />
     <ClInclude Include="win32\conproc.hpp" />
     <ClInclude Include="win32\resource.hpp" />
     <ClInclude Include="win32\winquake.hpp" />
@@ -254,7 +254,6 @@
   <ItemGroup>
     <ClCompile Include="common\cpuid.cpp" />
     <ClCompile Include="common\netservices\netservices_account.cpp" />
-    <ClCompile Include="..\game\src\shared.cpp" />
     <ClCompile Include="null\cl_null.cpp" />
     <ClCompile Include="null\glfw_null.cpp" />
     <ClCompile Include="null\in_null.cpp" />
@@ -284,6 +283,7 @@
     <ClCompile Include="server\server_send.cpp" />
     <ClCompile Include="server\server_user.cpp" />
     <ClCompile Include="server\server_world.cpp" />
+    <ClCompile Include="shared\shared.cpp" />
     <ClCompile Include="win32\conproc.cpp" />
     <ClCompile Include="win32\net_wins.cpp" />
     <ClCompile Include="win32\q_shwin.cpp" />

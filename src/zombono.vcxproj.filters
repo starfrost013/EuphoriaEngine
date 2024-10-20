@@ -162,9 +162,6 @@
     <ClCompile Include="..\game\src\gameplay\game_monster_flash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\game\src\shared.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="common\cmd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -255,6 +252,9 @@
     <ClCompile Include="client\console\console_ui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="shared\shared.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="win32\Zombono.rc">
@@ -302,9 +302,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game\game.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game\src\shared.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common\formats\bsp.hpp">
@@ -377,6 +374,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="win32\winquake.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\shared.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

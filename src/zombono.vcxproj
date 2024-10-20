@@ -77,7 +77,6 @@
     <ClCompile Include="client\render\render_interface.cpp" />
     <ClCompile Include="common\netservices\netservices_account.cpp" />
     <ClCompile Include="..\game\src\gameplay\game_monster_flash.cpp" />
-    <ClCompile Include="..\game\src\shared.cpp" />
     <ClCompile Include="common\cmd.cpp" />
     <ClCompile Include="common\gameinfo.cpp" />
     <ClCompile Include="common\map_loader.cpp" />
@@ -102,6 +101,7 @@
     <ClCompile Include="server\server_user.cpp" />
     <ClCompile Include="server\server_world.cpp" />
     <ClCompile Include="server\server_hack_protection.cpp" />
+    <ClCompile Include="shared\shared.cpp" />
     <ClCompile Include="win32\conproc.cpp" />
     <ClCompile Include="win32\net_wins.cpp" />
     <ClCompile Include="win32\q_shwin.cpp" />
@@ -126,7 +126,6 @@
     <ClInclude Include="client\include\ui.hpp" />
     <ClInclude Include="client\include\vid.hpp" />
     <ClInclude Include="game\game.hpp" />
-    <ClInclude Include="..\game\src\shared.hpp" />
     <ClInclude Include="common\formats\bsp.hpp" />
     <ClInclude Include="common\curl\curl.h" />
     <ClInclude Include="common\curl\curlver.h" />
@@ -148,6 +147,7 @@
     <ClInclude Include="common\formats\sp2.hpp" />
     <ClInclude Include="common\version.hpp" />
     <ClInclude Include="server\server.hpp" />
+    <ClInclude Include="shared\shared.hpp" />
     <ClInclude Include="win32\conproc.hpp" />
     <ClInclude Include="win32\resource.hpp" />
     <ClInclude Include="win32\winquake.hpp" />

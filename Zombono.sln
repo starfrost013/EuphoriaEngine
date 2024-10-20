@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EuphoriaDS", "src\EuphoriaD
 		{FE638112-A5C1-4796-82A7-749622BA1F0F} = {FE638112-A5C1-4796-82A7-749622BA1F0F}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_ui", "game\ui\ui.vcxproj", "{1AC16D94-EC68-4F37-9239-84DBA72F7484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,8 +122,8 @@ Global
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Debug|x64.Build.0 = Debug|x64
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Debug|x86.ActiveCfg = Debug|Win32
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Debug|x86.Build.0 = Debug|Win32
-		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|Any CPU.ActiveCfg = Debug|x64
-		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|Any CPU.Build.0 = Debug|x64
+		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|Any CPU.ActiveCfg = Playtest|x64
+		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|Any CPU.Build.0 = Playtest|x64
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|x64.ActiveCfg = Playtest|x64
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|x64.Build.0 = Playtest|x64
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Playtest|x86.ActiveCfg = Debug|Win32
@@ -132,6 +134,24 @@ Global
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Release|x64.Build.0 = Release|x64
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Release|x86.ActiveCfg = Release|Win32
 		{DB3F2BF7-08E4-4BCF-B2B6-5DA865CDF3E1}.Release|x86.Build.0 = Release|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|Any CPU.Build.0 = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|x64.ActiveCfg = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|x64.Build.0 = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|x86.ActiveCfg = Debug|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Debug|x86.Build.0 = Debug|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|Any CPU.ActiveCfg = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|Any CPU.Build.0 = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|x64.ActiveCfg = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|x64.Build.0 = Debug|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|x86.ActiveCfg = Debug|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Playtest|x86.Build.0 = Debug|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|Any CPU.ActiveCfg = Release|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|Any CPU.Build.0 = Release|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|x64.ActiveCfg = Release|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|x64.Build.0 = Release|x64
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|x86.ActiveCfg = Release|Win32
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
