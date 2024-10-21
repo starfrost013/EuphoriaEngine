@@ -79,7 +79,7 @@ static char* rd_buffer;
 static int32_t rd_buffersize;
 static void	(*rd_flush)(int32_t target, char* buffer);
 
-extern void SV_ShutdownGameProgs();
+extern void SV_ShutdownGameLibraries();
 
 void Com_BeginRedirect(int32_t target, char* buffer, int32_t buffersize, void(*flush)(int32_t target, char* buffer))
 {
@@ -209,7 +209,7 @@ void Com_Error(int32_t code, const char* fmt, ...)
 	}
 	else if (code == ERR_DROP)
 	{
-		Com_Printf("********************\nERROR: %s\n********************\n", msg);
+		Com_Printf("-------\nERROR: %s\n-------\n", msg);
 		SV_Shutdown(va("Server crashed: %s\n", msg), false);
 		CL_Drop();
 		recursive = false;
@@ -219,7 +219,7 @@ void Com_Error(int32_t code, const char* fmt, ...)
 	else
 	{
 		SV_Shutdown(va("Server fatal crashed: %s\n", msg), false);
-		SV_ShutdownGameProgs();
+		SV_ShutdownGameLibraries();
 		CL_Shutdown();
 	}
 
@@ -243,7 +243,7 @@ do the apropriate things.
 void Com_Quit()
 {
 	SV_Shutdown("Server quit\n", false);
-	SV_ShutdownGameProgs();
+	SV_ShutdownGameLibraries();
 	CL_Shutdown();
 
 	if (logfile)
@@ -1476,7 +1476,7 @@ void Common_Frame(int32_t msec)
 	if (setjmp(abortframe))
 	{
 		if (shutdown_game)
-			SV_ShutdownGameProgs();
+			SV_ShutdownGameLibraries();
 		shutdown_game = false;
 		return;			// an ERR_DROP was thrown
 	}

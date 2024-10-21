@@ -237,3 +237,8 @@ bool UI_SettingsSoundUICreate();
 
 // KillFeedUI
 bool UI_KillFeedUICreate();
+
+typedef struct ui_api_s
+{
+
+} ui_api_t;

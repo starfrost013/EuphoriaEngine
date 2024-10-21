@@ -295,7 +295,7 @@ void SV_WriteLevelFile()
 	fclose(f);
 
 	snprintf(name, sizeof(name), "%s/save/current/%s.sav", FS_Gamedir(), sv.name);
-	ge->Level_Write(name);
+	game->Level_Write(name);
 }
 
 /*
@@ -323,7 +323,7 @@ void SV_ReadLevelFile()
 	fclose(f);
 
 	snprintf(name, sizeof(name), "%s/save/current/%s.sav", FS_Gamedir(), sv.name);
-	ge->Level_Read(name);
+	game->Level_Read(name);
 }
 
 /*
@@ -396,7 +396,7 @@ void SV_WriteServerFile(bool autosave)
 
 	// write game state
 	snprintf(name, sizeof(name), "%s/save/current/game.ssv", FS_Gamedir());
-	ge->Game_Write(name, autosave);
+	game->Game_Write(name, autosave);
 }
 
 /*
@@ -447,7 +447,7 @@ void SV_ReadServerFile()
 
 	// read game state
 	snprintf(name, sizeof(name), "%s/save/current/game.ssv", FS_Gamedir());
-	ge->Game_Read(name);
+	game->Game_Read(name);
 }
 
 
@@ -1042,7 +1042,7 @@ void SV_KillServer_f()
 	if (!svs.initialized)
 		return;
 	SV_Shutdown("Server was killed.\n", false);
-	SV_ShutdownGameProgs();
+	SV_ShutdownGameLibraries();
 	Net_Config(false);	// close network sockets
 }
 
@@ -1055,13 +1055,13 @@ Let the game dll handle a command
 */
 void SV_ServerCommand_f()
 {
-	if (!ge)
+	if (!game)
 	{
 		Com_Printf("No game loaded.\n");
 		return;
 	}
 
-	ge->Server_Command();
+	game->Server_Command();
 }
 
 //===========================================================

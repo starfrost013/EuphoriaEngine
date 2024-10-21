@@ -89,7 +89,7 @@ void SV_DropClient(client_t* drop)
 	{
 		// call the prog function for removing a client
 		// this will remove the body, among other things
-		ge->Client_Disconnect(drop->edict);
+		game->Client_Disconnect(drop->edict);
 	}
 
 	if (drop->download)
@@ -283,7 +283,7 @@ gotnewcl:
 	newcl->challenge = challenge; // save challenge for checksumming
 
 	// get the game a chance to reject this connection or modify the userinfo
-	if (!(ge->Client_Connect(ent, userinfo)))
+	if (!(game->Client_Connect(ent, userinfo)))
 	{
 		if (*Info_ValueForKey(userinfo, "rejmsg"))
 			Netchan_OutOfBandPrint(NS_SERVER, adr, "print\n%s\nConnection refused.\n",
@@ -601,7 +601,7 @@ void SV_PrepWorldFrame()
 	edict_t* ent;
 	int32_t 	i;
 
-	for (i = 0; i < ge->num_edicts; i++, ent++)
+	for (i = 0; i < game->num_edicts; i++, ent++)
 	{
 		ent = EDICT_NUM(i);
 		// events only last for a single message
@@ -631,7 +631,7 @@ void SV_RunGameFrame()
 	// don't run if paused
 	if (!sv_paused->value || sv_maxclients->value > 1)
 	{
-		ge->Game_RunFrame();
+		game->Game_RunFrame();
 
 		// never get more than one tic behind
 		if (sv.time < svs.realtime)
@@ -728,7 +728,7 @@ void SV_UserinfoChanged(client_t* cl)
 	int32_t 	i;
 
 	// call prog code to allow overrides
-	ge->Client_UserinfoChanged(cl->edict, cl->userinfo);
+	game->Client_UserinfoChanged(cl->edict, cl->userinfo);
 
 	// name for C code
 	strncpy(cl->name, Info_ValueForKey(cl->userinfo, "name"), sizeof(cl->name) - 1);

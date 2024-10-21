@@ -475,7 +475,7 @@ void SV_BuildClientFrame (client_t *client)
 
 	c_fullsend = 0;
 
-	for (e=1 ; e<ge->num_edicts ; e++)
+	for (e=1 ; e<game->num_edicts ; e++)
 	{
 		ent = EDICT_NUM(e);
 
@@ -599,7 +599,7 @@ void SV_RecordDemoMessage ()
 
 	e = 1;
 	ent = EDICT_NUM(e);
-	while (e < ge->num_edicts) 
+	while (e < game->num_edicts) 
 	{
 		// ignore ents without visible models unless they have an effect
 		if (ent->inuse &&

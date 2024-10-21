@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 client_static_t	cls;
 client_state_t	cl;
+game_ui_api_t*	gui;		// Game UI dll interface object
 
 centity_t		cl_entities[MAX_EDICTS];
 
@@ -692,6 +693,26 @@ void App_Activate(bool active, bool minimize)
 
 //============================================================================
 
+// Initialises the gameui library
+void CL_InitGameLibraries()
+{
+	Com_Printf("------- Loading GameUI -------\n");
+
+	gui = (game_ui_api_t*)Sys_LoadGameUILibrary(NULL);
+
+	if (gui->version != GAME_UI_INTERFACE_VERSION)
+		Sys_Error("Incorrect Game UI interface version %d (expected %d)...", gui->version, GAME_UI_INTERFACE_VERSION);
+}
+
+
+void CL_ShutdownGameLibraries()
+{
+	Com_Printf("------- Shutting down GameUI -------\n");
+
+	Sys_UnloadGameUILibrary();
+	gui = NULL;
+}
+
 /*
 ====================
 CL_Init
@@ -704,6 +725,9 @@ void CL_Init()
 
 	// all archived variables will now be loaded
 	Con_Init();
+
+	// Initialise game client dll (game_ui)
+	CL_InitGameLibraries();
 
 #if defined __linux__
 	S_Init();
@@ -737,6 +761,10 @@ void CL_Init()
 	Cbuf_AddText("exec playtest_server.cfg");
 #endif
 
+	// now the init is done...
+	if (!gui->GameUI_Create())
+		Sys_Error("Error during initialisation: Failed to create game UI");
+
 	// let's go!
 	App_Activate(true, false);
 
@@ -768,6 +796,7 @@ void CL_Shutdown()
 	}
 	isdown = true;
 
+	CL_ShutdownGameLibraries();
 	CL_WriteConfiguration();
 	Miniaudio_Shutdown();
 	S_Shutdown();

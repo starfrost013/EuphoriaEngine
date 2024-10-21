@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EuphoriaEngine", "src\zombono.vcxproj", "{311C3C36-E612-47A7-B4E8-443ABF32CBA6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{089318CF-012D-4723-BCAC-036EEF68344E} = {089318CF-012D-4723-BCAC-036EEF68344E}
+		{1AC16D94-EC68-4F37-9239-84DBA72F7484} = {1AC16D94-EC68-4F37-9239-84DBA72F7484}
 		{B21C65E1-7AE4-43DD-A648-F8920414B75D} = {B21C65E1-7AE4-43DD-A648-F8920414B75D}
 		{FE638112-A5C1-4796-82A7-749622BA1F0F} = {FE638112-A5C1-4796-82A7-749622BA1F0F}
 	EndProjectSection
@@ -30,6 +31,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EuphoriaDS", "src\EuphoriaD
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_ui", "game\ui\ui.vcxproj", "{1AC16D94-EC68-4F37-9239-84DBA72F7484}"
+	ProjectSection(ProjectDependencies) = postProject
+		{089318CF-012D-4723-BCAC-036EEF68344E} = {089318CF-012D-4723-BCAC-036EEF68344E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

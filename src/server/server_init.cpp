@@ -95,7 +95,7 @@ void SV_CreateBaseline()
 	edict_t*	svent;
 	int32_t		entnum;
 
-	for (entnum = 1; entnum < ge->num_edicts; entnum++)
+	for (entnum = 1; entnum < game->num_edicts; entnum++)
 	{
 		svent = EDICT_NUM(entnum);
 		if (!svent->inuse)
@@ -154,7 +154,7 @@ void SV_CheckForSavegame()
 		previousState = sv.state;
 		sv.state = ss_loading;
 		for (i = 0; i < 100; i++)
-			ge->Game_RunFrame();
+			game->Game_RunFrame();
 
 		sv.state = previousState;
 	}
@@ -282,11 +282,11 @@ void SV_SpawnServer(char* server, char* spawnpoint, server_state_t serverstate, 
 	Com_SetServerState(sv.state);
 
 	// load and spawn all other entities
-	ge->Game_SpawnEntities(sv.name, Map_GetEntityString(), spawnpoint);
+	game->Game_SpawnEntities(sv.name, Map_GetEntityString(), spawnpoint);
 
 	// run two frames to allow everything to settle
-	ge->Game_RunFrame();
-	ge->Game_RunFrame();
+	game->Game_RunFrame();
+	game->Game_RunFrame();
 
 	// all precaches are complete
 	sv.state = serverstate;
@@ -323,7 +323,7 @@ void SV_InitGame()
 	{
 		// cause any connected clients to reconnect
 		SV_Shutdown("Server restarted\n", true);
-		SV_ShutdownGameProgs();
+		SV_ShutdownGameLibraries();
 	}
 	else
 	{
@@ -379,7 +379,8 @@ void SV_InitGame()
 	Com_DPrintf("Master server is %s (TODO: MAKE CVAR!!!)\n", zombono_master);
 
 	// init game
-	SV_InitGameProgs();
+	SV_InitGameLibraries();
+
 	for (i = 0; i < sv_maxclients->value; i++)
 	{
 		ent = EDICT_NUM(i + 1);

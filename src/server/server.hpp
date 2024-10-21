@@ -70,8 +70,8 @@ typedef struct
 	bool			timedemo;		// don't time sync
 } server_t;
 
-#define EDICT_NUM(n) ((edict_t *)((uint8_t *)ge->edicts + ge->edict_size*(n)))
-#define NUM_FOR_EDICT(e) ( ((uint8_t *)(e)-(uint8_t *)ge->edicts ) / ge->edict_size)
+#define EDICT_NUM(n) ((edict_t *)((uint8_t *)game->edicts + game->edict_size*(n)))
+#define NUM_FOR_EDICT(e) ( ((uint8_t *)(e)-(uint8_t *)game->edicts ) / game->edict_size)
 
 
 typedef enum
@@ -85,12 +85,12 @@ typedef enum
 
 typedef struct
 {
-	int32_t 				areabytes;
-	uint8_t				areabits[MAX_MAP_AREAS / 8];		// portalarea visibility bits
-	player_state_t		ps;
-	int32_t 				num_entities;
-	int32_t 				first_entity;		// into the circular sv_packet_entities[]
-	int32_t 				senttime;			// for ping calculations
+	int32_t 		areabytes;
+	uint8_t			areabits[MAX_MAP_AREAS / 8];		// portalarea visibility bits
+	player_state_t	ps;
+	int32_t 		num_entities;
+	int32_t 		first_entity;		// into the circular sv_packet_entities[]
+	int32_t 		senttime;			// for ping calculations
 } client_frame_t;
 
 #define	LATENCY_COUNTS		16
@@ -174,7 +174,7 @@ typedef struct
 
 	int32_t 		last_heartbeat;
 
-	challenge_t			challenges[MAX_CHALLENGES];	// to prevent invalid IPs from connecting
+	challenge_t		challenges[MAX_CHALLENGES];	// to prevent invalid IPs from connecting
 
 	// serverrecord values
 	FILE*			demofile;
@@ -315,10 +315,10 @@ void SV_BuildClientFrame(client_t* client);
 //
 // sv_game.c
 //
-extern game_export_t* ge;
+extern game_api_t* game;
 
-void SV_InitGameProgs();
-void SV_ShutdownGameProgs();
+void SV_InitGameLibraries();
+void SV_ShutdownGameLibraries();
 
 //============================================================
 

@@ -1,13 +1,9 @@
 Euphoria 0.2 changes
 
 OVERALL ENGINE DESIGN:
-* Qcommon split into its own dll - loaded by both game and engine, EuphoriaCommon.dll
-* Loading process goes like this:
-* Engine exe runs
-* Loads euphoriacommon
-* Euphoriacommon loads client, server, sys interface objects
-* Loads game with passed client, server, sys objects in GameAPI
-* Game split into gamex64 and uix64 (for client-side game ui, hooks into engine UI subsystem)
+
+* Game split into gamex64 and game_x64 (for client-side game ui, hooks into engine UI subsystem)
+	* Very simple - exports a single function, GameUI_Create, which creates all the UIs using the UI subsystem
 * Move from C to procedural C++ for creature comfort
 * Modifiable tickrate (sv_tickrate) already done
 
@@ -20,6 +16,8 @@ of reserving 500mb+
 
 UI:
 * Old quake2 UI system removed (already done)
+* Make positions float-based and from (0,0) to (1,1)
+* Add scrollbars/scrollwindow
 
 CONSOLE:
 * Make it a window - integrate it with the existing UI system
@@ -30,6 +28,7 @@ GAME DLL:
 * Current Game DLL is too tied to a tickrate of 10Hz
 * Allow the gamedll to provide ui (provided via a client-sided UI DLL)
 * Get a nice new set of standard entities for platforms, or whatever
+	* All of these are scriptable using squirrel
 
 MODELS:
 * Model, animation, and weapon system is too tied up
@@ -79,7 +78,7 @@ TOOLS:
 * Improve MKPAK
 
 LEVELS:
-* Consider scripts in levels
+* Level scripting using events etc - squirrel
 * Allow brushes to be removed for semi permanent destruction
 	* Add effects to make this happen
 

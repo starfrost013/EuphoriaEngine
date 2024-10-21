@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <client/client.hpp>
 
-extern void SV_ShutdownGameProgs();
+extern void SV_ShutdownGameLibraries();
 
 
 /*
@@ -309,7 +309,7 @@ void CL_Connect_f()
 	if (Com_GetServerState())
 	{	// if running a local server, kill it and reissue
 		SV_Shutdown(va("Server quit\n", msg), false);
-		SV_ShutdownGameProgs();
+		SV_ShutdownGameLibraries();
 	}
 	else
 	{

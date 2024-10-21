@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "server.hpp"
 
-game_export_t* ge;
+game_api_t* game;		// Game server DLL interface object
 
 /*
 ===============
@@ -332,13 +332,13 @@ Called when either the entire server is being killed, or
 it is changing to a different game directory.
 ===============
 */
-void SV_ShutdownGameProgs()
+void SV_ShutdownGameLibraries()
 {
-	if (!ge)
+	if (!game)
 		return;
-	ge->Game_Shutdown();
-	Sys_UnloadGameLibrary();
-	ge = NULL;
+	game->Game_Shutdown();
+	Sys_UnloadGameServerLibrary();
+	game = NULL;
 }
 
 /*
@@ -350,13 +350,13 @@ Init the game subsystem for a new map
 */
 void Render2D_DebugGraph(float value, int32_t r, int32_t g, int32_t b, int32_t a);
 
-void SV_InitGameProgs()
+void SV_InitGameLibraries()
 {
-	game_import_t import;
+	engine_api_t import;
 
 	// unload anything we have now
-	if (ge)
-		SV_ShutdownGameProgs();
+	if (game)
+		SV_ShutdownGameLibraries();
 
 	// load a new game dll
 	import.multicast = SV_Multicast;
@@ -427,18 +427,19 @@ void SV_InitGameProgs()
 	import.SetAreaPortalState = Map_SetAreaPortalState;
 	import.AreasConnected = Map_AreasConnected;
 
-	ge = (game_export_t*)Sys_LoadGameLibrary(&import);
+	game = (game_api_t*)Sys_LoadGameServerLibrary(&import);
 
-	if (!ge)
+
+	if (!game)
 	{
 		Com_Error(ERR_DROP, "failed to load game DLL");
 		return;
 	}
 
-	if (ge->api_version != GAME_API_VERSION)
-		Com_Error(ERR_DROP, "game is version %i, not %i", ge->api_version,
+	if (game->api_version != GAME_API_VERSION)
+		Com_Error(ERR_DROP, "game is version %i, not %i", game->api_version,
 			GAME_API_VERSION);
 
-	ge->Game_Init();
+	game->Game_Init();
 }
 
