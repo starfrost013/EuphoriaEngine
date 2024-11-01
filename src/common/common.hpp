@@ -402,11 +402,11 @@ then searches for a command or variable that matches the first token.
 
 */
 
-typedef void (*xcommand_t) ();
+typedef void (*command_t) ();
 
 void Cmd_Init();
 
-void Cmd_AddCommand(const char* cmd_name, xcommand_t function);
+void Cmd_AddCommand(const char* cmd_name, command_t function);
 // called by the init functions of other parts of the program to
 // register commands and functions to call for them.
 // The cmd_name is referenced later, so it should not be in temp memory

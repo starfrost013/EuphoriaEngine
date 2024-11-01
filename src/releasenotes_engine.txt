@@ -9,10 +9,16 @@ NEW FEATURES:
 		* Converted the entire engine to procedural C++. C++'s stricter type system led to the fixing of various bugs - these are explained in the bugfixes section.
 		* Completely reset all protocol versions to 1
 		* Moved the UI into a new DLL that runs on the client side - game_ui*.dll
+			* The interface object used for this is game_ui_api_t, the engine exports a separate API to this dll (not in yet)
+			* The server doesn't need and doesn't know about this DLL
 		* Renderer API:
 			* Remove Vid_MenuInit
 			* Add JSON functions
 		* Renamed game_import_t to engine_api_t, game_export_t to game_api_t 
+		* Renamed LoadProgs to LoadLibraries
+		* Fixed weird cargo cult stuff
+		* Cmd_Argv now returns nullptr if a string can't be found
+		* Changed all strcpy to strncpy in command code
 	* Restarted game code from scratch
 
 	* Added a "startserver" command
@@ -35,6 +41,7 @@ REMOVALS:
 
 OTHER CHANGES:
 	* Renamed UI_AddUI to UI_Add
+	* Renamed xcommand_t structure for console commands to command_t
 
 Version 0.1.0-pre2
 August 24, 2024

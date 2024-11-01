@@ -385,6 +385,7 @@ void Cmd_Exec_f()
 		Com_Printf("couldn't exec %s\n", Cmd_Argv(1));
 		return;
 	}
+
 	Com_Printf("execing %s\n", Cmd_Argv(1));
 
 	// the file doesn't have a trailing 0, so we need to copy it off
@@ -460,7 +461,7 @@ void Cmd_Alias_f()
 		a->next = cmd_alias;
 		cmd_alias = a;
 	}
-	strcpy(a->name, s);
+	strncpy(a->name, s, MAX_ALIAS_NAME);
 
 	// copy the rest of the command line
 	cmd[0] = 0;		// start out with a null string
@@ -488,13 +489,12 @@ typedef struct cmd_function_s
 {
 	struct cmd_function_s* next;
 	const char* name;
-	xcommand_t				function;
+	command_t				function;
 } cmd_function_t;
 
 
 static int32_t cmd_argc;
 static char* cmd_argv[MAX_STRING_TOKENS];
-static const char* cmd_null_string = "";
 static char	 cmd_args[MAX_STRING_CHARS];
 
 static cmd_function_t* cmd_functions;		// possible commands to execute
@@ -517,7 +517,8 @@ Cmd_Argv
 char* Cmd_Argv(int32_t arg)
 {
 	if ((uint32_t)arg >= cmd_argc)
-		return (char*)cmd_null_string; //NO
+		return nullptr;
+
 	return cmd_argv[arg];
 }
 
@@ -586,11 +587,13 @@ char* Cmd_MacroExpandString(const char* text)
 			return NULL;
 		}
 
+		// expand string
 		strncpy(temporary, scan, i);
-		strcpy(temporary + i, token);
-		strcpy(temporary + i + j, start);
+		strncpy(temporary + i, token, MAX_STRING_CHARS - i);
+		strncpy(temporary + i + j, start, MAX_STRING_CHARS - i - j);
 
-		strcpy(expanded, temporary);
+		strncpy(expanded, temporary, MAX_STRING_CHARS);
+
 		scan = expanded;
 		i--;
 
@@ -658,17 +661,25 @@ void Cmd_TokenizeString(const char* text, bool macro_expand)
 		// set cmd_args to everything after the first arg
 		if (cmd_argc == 1)
 		{
-			int32_t 	l;
+			int32_t l;
 
-			strcpy(cmd_args, text);
+			strncpy(cmd_args, text, MAX_STRING_CHARS);
+
+			//sanity check
+			if (cmd_args[MAX_STRING_CHARS - 1] != '\0')
+				cmd_args[MAX_STRING_CHARS - 1] = '\0';
 
 			// strip off any trailing whitespace
 			l = (int32_t)strlen(cmd_args) - 1;
+
 			for (; l >= 0; l--)
+			{
 				if (cmd_args[l] <= ' ')
 					cmd_args[l] = 0;
 				else
 					break;
+			}
+
 		}
 
 		com_token = COM_Parse((char**)&text);
@@ -678,21 +689,21 @@ void Cmd_TokenizeString(const char* text, bool macro_expand)
 
 		if (cmd_argc < MAX_STRING_TOKENS)
 		{
-			cmd_argv[cmd_argc] = (char*)Memory_ZoneMalloc((int32_t)strlen(com_token) + 1);
-			strcpy(cmd_argv[cmd_argc], com_token);
+			size_t string_length = strlen(com_token) + 1;
+
+			cmd_argv[cmd_argc] = (char*)Memory_ZoneMalloc((int32_t)string_length);
+			strncpy(cmd_argv[cmd_argc], com_token, string_length);
 			cmd_argc++;
 		}
 	}
-
 }
-
 
 /*
 ============
 Cmd_AddCommand
 ============
 */
-void Cmd_AddCommand(const char* cmd_name, xcommand_t function)
+void Cmd_AddCommand(const char* cmd_name, command_t function)
 {
 	cmd_function_t* cmd;
 
