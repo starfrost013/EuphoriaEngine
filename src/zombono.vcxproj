@@ -103,11 +103,11 @@
     <ClCompile Include="server\server_world.cpp" />
     <ClCompile Include="server\server_hack_protection.cpp" />
     <ClCompile Include="shared\shared.cpp" />
-    <ClCompile Include="win32\conproc.cpp" />
-    <ClCompile Include="win32\net_wins.cpp" />
-    <ClCompile Include="win32\q_shwin.cpp" />
-    <ClCompile Include="win32\snd_win.cpp" />
-    <ClCompile Include="win32\sys_win.cpp" />
+    <ClCompile Include="win32\win32_conproc.cpp" />
+    <ClCompile Include="win32\win32_net_winsock.cpp" />
+    <ClCompile Include="win32\win32_alloc.cpp" />
+    <ClCompile Include="win32\win32_sound.cpp" />
+    <ClCompile Include="win32\win32_sys.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="win32\Zombono.rc" />
@@ -151,9 +151,9 @@
     <ClInclude Include="common\version.hpp" />
     <ClInclude Include="server\server.hpp" />
     <ClInclude Include="shared\shared.hpp" />
-    <ClInclude Include="win32\conproc.hpp" />
+    <ClInclude Include="win32\win32_conproc.hpp" />
     <ClInclude Include="win32\resource.hpp" />
-    <ClInclude Include="win32\winquake.hpp" />
+    <ClInclude Include="win32\platform_win32.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="win32\zombono.ico" />

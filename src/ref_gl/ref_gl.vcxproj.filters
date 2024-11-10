@@ -15,13 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\game\src\shared.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\win32\q_shwin.cpp">
+    <ClCompile Include="..\win32\win32_alloc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="external\src\glad.c">
@@ -60,6 +57,9 @@
     <ClCompile Include="model\gl_zmdl_load.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\shared\shared.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ref_gl.def">
@@ -67,12 +67,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\client\ref.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game\src\shared.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\qcommon\common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -104,6 +98,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="warpsin.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\client\include\ref.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\shared.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

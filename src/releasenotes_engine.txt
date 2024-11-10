@@ -18,6 +18,7 @@ NEW FEATURES:
 		* Renamed LoadProgs to LoadLibraries
 		* Fixed weird cargo cult stuff
 		* Cmd_Argv now returns nullptr if a string can't be found
+			* Renamed xcommand_t to command_t
 		* Changed all strcpy to strncpy in command code
 	* Restarted game code from scratch
 

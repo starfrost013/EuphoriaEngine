@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <common/common.hpp>
 #include <client/client.hpp>
 #include "platform_win32.hpp"
-#include "resource.h"
+#include "win32_resource.h"
 
 #include <cerrno>
 #include <cfloat>
@@ -34,7 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <direct.h>
 #include <io.h>
 #include <conio.h>
-#include <win32/win32_win32_conproc.hpp>
+#include <win32/win32_conproc.hpp>
 
 // to make euphoriads compile
 #ifdef DEDICATED_ONLY

@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <cstdint>
 #include <process.h>
 #include <windows.h>
-#include "conproc.hpp"
+#include "win32_conproc.hpp"
 
 #define CCOM_WRITE_TEXT		0x2
 // Param1 : Text

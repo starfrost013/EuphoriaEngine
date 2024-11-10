@@ -81,19 +81,19 @@
     <ClInclude Include="server\server.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="win32\conproc.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="win32\resource.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="win32\winquake.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common\formats\zmdl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shared\shared.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\win32_conproc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\platform_win32.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -191,16 +191,16 @@
     <ClCompile Include="server\server_world.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\conproc.cpp">
+    <ClCompile Include="win32\win32_conproc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\net_wins.cpp">
+    <ClCompile Include="win32\win32_net_winsock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\q_shwin.cpp">
+    <ClCompile Include="win32\win32_alloc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="win32\sys_win.cpp">
+    <ClCompile Include="win32\win32_sys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="shared\shared.cpp">

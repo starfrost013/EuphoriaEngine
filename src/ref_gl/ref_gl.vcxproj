@@ -291,7 +291,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\shared\shared.cpp" />
     <ClCompile Include="gl_glfw.cpp" />
-    <ClCompile Include="..\win32\q_shwin.cpp" />
+    <ClCompile Include="..\win32\win32_alloc.cpp" />
     <ClCompile Include="external\src\glad.c" />
     <ClCompile Include="gl_draw.cpp" />
     <ClCompile Include="gl_image.cpp" />
