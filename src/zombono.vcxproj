@@ -43,6 +43,7 @@
     <ClCompile Include="client\input\input_mouse.cpp" />
     <ClCompile Include="client\ui\settings\ui_settings_sound.cpp" />
     <ClCompile Include="client\ui\settings\ui_settings_graphics.cpp" />
+    <ClCompile Include="client\ui\ui_game_interface.cpp" />
     <ClCompile Include="client\ui\ui_killfeed.cpp" />
     <ClCompile Include="client\ui\settings\ui_settings_controls.cpp" />
     <ClCompile Include="client\ui\settings\ui_settings_game.cpp" />
@@ -117,6 +118,8 @@
     <ClInclude Include="client\include\console.hpp" />
     <ClInclude Include="client\include\input.hpp" />
     <ClInclude Include="client\include\input_keys.hpp" />
+    <ClInclude Include="client\include\ui_game_interface.hpp" />
+    <ClInclude Include="common\mathlib.hpp" />
     <ClInclude Include="client\include\miniaudio.hpp" />
     <ClInclude Include="client\include\menu_framework.hpp" />
     <ClInclude Include="client\include\ref.hpp" />

@@ -255,6 +255,9 @@
     <ClCompile Include="shared\shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="client\ui\ui_game_interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="win32\Zombono.rc">
@@ -377,6 +380,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shared\shared.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\mathlib.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="client\include\ui_game_interface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

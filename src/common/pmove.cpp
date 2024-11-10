@@ -38,13 +38,13 @@ typedef struct
 
 	csurface_t* groundsurface;
 	cplane_t	groundplane;
-	int32_t 		groundcontents;
+	int32_t 	groundcontents;
 
 	vec3_t		previous_origin;
-	bool	ladder;
+	bool		ladder;
 } pml_t;
 
-pmove_t* pm;
+pmove_t*	pm;
 pml_t		pml;
 
 // DEFAULT PHYSICS PARAMETERS

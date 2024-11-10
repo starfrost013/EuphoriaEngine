@@ -39,7 +39,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "include/console.hpp"
 #include "include/sound_miniaudio.hpp"
 #include "include/ui.hpp"
-#include <../game/ui/game_ui.hpp>
 
 //=============================================================================
 

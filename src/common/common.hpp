@@ -905,7 +905,7 @@ void*	Sys_LoadCommonLibrary();
 
 void*	Sys_LoadGameServerLibrary(void* parms);
 void	Sys_UnloadGameServerLibrary();
-void*	Sys_LoadGameUILibrary(void* parms);
+void*	Sys_LoadGameUILibrary(void* engine_api);
 void	Sys_UnloadGameUILibrary();
 
 // loads the game dll and calls the api init function

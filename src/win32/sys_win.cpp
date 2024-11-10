@@ -39,9 +39,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // to make euphoriads compile
 #ifdef DEDICATED_ONLY
 bool			app_active;
+#else
+#include <client/include/ui_game_interface.hpp>
 #endif
-
-extern void UI_InitInterface();
 
 static HANDLE	hinput, houtput;
 

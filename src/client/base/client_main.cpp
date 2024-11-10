@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // client_main.c  -- client main loop, init, shutdown
 
 #include <client/client.hpp>
+#include <../game/ui/game_ui.hpp>
 
 client_static_t	cls;
 client_state_t	cl;
@@ -692,13 +693,15 @@ void App_Activate(bool active, bool minimize)
 
 
 //============================================================================
-
+#ifndef DEDICATED_ONLY
 // Initialises the gameui library
 void CL_InitGameLibraries()
 {
 	Com_Printf("------- Loading GameUI -------\n");
 
-	gui = (game_ui_api_t*)Sys_LoadGameUILibrary(NULL);
+	engine_ui_api_t* engine_api = UI_InitInterface();
+
+	gui = (game_ui_api_t*)Sys_LoadGameUILibrary(engine_api);
 
 	if (gui->version != GAME_UI_INTERFACE_VERSION)
 		Sys_Error("Incorrect Game UI interface version %d (expected %d)...", gui->version, GAME_UI_INTERFACE_VERSION);
@@ -712,6 +715,8 @@ void CL_ShutdownGameLibraries()
 	Sys_UnloadGameUILibrary();
 	gui = NULL;
 }
+#endif
+
 
 /*
 ====================
@@ -726,8 +731,10 @@ void CL_Init()
 	// all archived variables will now be loaded
 	Con_Init();
 
+#ifndef DEDICATED_ONLY
 	// Initialise game client dll (game_ui)
 	CL_InitGameLibraries();
+#endif
 
 #if defined __linux__
 	S_Init();

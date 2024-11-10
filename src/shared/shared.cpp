@@ -664,6 +664,8 @@ void Swap_Init()
 
 }
 
+#define MAX_VARARGS_SIZE 1024
+
 /*
 ============
 va
@@ -676,10 +678,10 @@ FIXME: make this buffer size safe someday
 char* va(const char* format, ...)
 {
 	va_list		argptr;
-	static char		string[1024];
+	static char	string[MAX_VARARGS_SIZE];
 
 	va_start(argptr, format);
-	vsnprintf(string, 1024, format, argptr);
+	vsnprintf(string, MAX_VARARGS_SIZE, format, argptr);
 	va_end(argptr);
 
 	return string;
